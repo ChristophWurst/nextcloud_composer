@@ -7,6 +7,7 @@
  * @author Morris Jobke <hey@morrisjobke.de>
  * @author Robin Appelman <robin@icewind.nl>
  * @author Robin McCorkell <robin@mccorkell.me.uk>
+ * @author Roeland Jago Douma <roeland@famdouma.nl>
  * @author Thomas Müller <thomas.mueller@tmit.eu>
  *
  * @license AGPL-3.0
@@ -34,6 +35,7 @@
 // use OCP namespace for all classes that are considered public.
 // This means that they should be used by apps instead of the internal ownCloud classes
 namespace OCP;
+use Doctrine\DBAL\Schema\Schema;
 use OCP\DB\QueryBuilder\IQueryBuilder;
 
 /**
@@ -259,4 +261,20 @@ interface IDBConnection {
 	 * @since 11.0.0
 	 */
 	public function supports4ByteText();
+
+	/**
+	 * Create the schema of the connected database
+	 *
+	 * @return Schema
+	 * @since 13.0.0
+	 */
+	public function createSchema();
+
+	/**
+	 * Migrate the database to the given schema
+	 *
+	 * @param Schema $toSchema
+	 * @since 13.0.0
+	 */
+	public function migrateToSchema(Schema $toSchema);
 }

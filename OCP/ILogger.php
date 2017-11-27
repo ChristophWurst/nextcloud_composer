@@ -3,6 +3,8 @@
  * @copyright Copyright (c) 2016, ownCloud, Inc.
  *
  * @author Bernhard Posselt <dev@bernhard-posselt.com>
+ * @author Jan-Christoph Borchardt <hey@jancborchardt.net>
+ * @author Lukas Reschke <lukas@statuscode.ch>
  * @author Morris Jobke <hey@morrisjobke.de>
  * @author Thomas Müller <thomas.mueller@tmit.eu>
  *
@@ -136,7 +138,7 @@ interface ILogger {
 	 * ]);
 	 * </code>
 	 *
-	 * @param \Exception | \Throwable $exception
+	 * @param \Exception|\Throwable $exception
 	 * @param array $context
 	 * @return void
 	 * @since 8.2.0

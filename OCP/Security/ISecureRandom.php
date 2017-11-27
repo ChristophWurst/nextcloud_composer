@@ -2,8 +2,10 @@
 /**
  * @copyright Copyright (c) 2016, ownCloud, Inc.
  *
+ * @author Fabrizio Steiner <fabrizio.steiner@gmail.com>
  * @author Lukas Reschke <lukas@statuscode.ch>
  * @author Morris Jobke <hey@morrisjobke.de>
+ * @author Roeland Jago Douma <roeland@famdouma.nl>
  *
  * @license AGPL-3.0
  *
@@ -49,7 +51,7 @@ interface ISecureRandom {
 	 * generate human readable random strings. Lower- and upper-case characters and digits 
 	 * are included. Characters which are ambiguous are excluded, such as I, l, and 1 and so on.
 	 */
-	const CHAR_HUMAN_READABLE = "abcdefgijkmnopqrstwxyzABCDEFGHJKLMNPQRSTWXYZ23456789";
+	const CHAR_HUMAN_READABLE = 'abcdefgijkmnopqrstwxyzABCDEFGHJKLMNPQRSTWXYZ23456789';
 
 	/**
 	 * Convenience method to get a low strength random number generator.

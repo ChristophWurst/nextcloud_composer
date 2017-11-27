@@ -5,6 +5,7 @@
  * @author Bernhard Posselt <dev@bernhard-posselt.com>
  * @author Jörn Friedrich Dreyer <jfd@butonic.de>
  * @author Morris Jobke <hey@morrisjobke.de>
+ * @author Roeland Jago Douma <roeland@famdouma.nl>
  * @author Thomas Müller <thomas.mueller@tmit.eu>
  *
  * @license AGPL-3.0
@@ -43,7 +44,7 @@ interface IApi {
 	 * @return string the user id of the current user
 	 * @deprecated 8.0.0 Use \OC::$server->getUserSession()->getUser()->getUID()
 	 */
-	function getUserId();
+	public function getUserId();
 
 
 	/**
@@ -53,7 +54,7 @@ interface IApi {
 	 * @param string $appName the name of the app, defaults to the current one
 	 * @return void
 	 */
-	function addScript($scriptName, $appName = null);
+	public function addScript($scriptName, $appName = null);
 
 
 	/**
@@ -63,7 +64,7 @@ interface IApi {
 	 * @param string $appName the name of the app, defaults to the current one
 	 * @return void
 	 */
-	function addStyle($styleName, $appName = null);
+	public function addStyle($styleName, $appName = null);
 
 
 	/**
@@ -72,7 +73,7 @@ interface IApi {
 	 * @param string $name the name of the file without the suffix
 	 * @return void
 	 */
-	function add3rdPartyScript($name);
+	public function add3rdPartyScript($name);
 
 
 	/**
@@ -81,7 +82,7 @@ interface IApi {
 	 * @param string $name the name of the file without the suffix
 	 * @return void
 	 */
-	function add3rdPartyStyle($name);
+	public function add3rdPartyStyle($name);
 
 
 	/**

@@ -2,6 +2,7 @@
 /**
  * @copyright Copyright (c) 2016, ownCloud, Inc.
  *
+ * @author Jan-Christoph Borchardt <hey@jancborchardt.net>
  * @author Lukas Reschke <lukas@statuscode.ch>
  * @author Roeland Jago Douma <roeland@famdouma.nl>
  *
@@ -35,12 +36,12 @@ class GenericShareException extends HintException {
 	 * @param string $message
 	 * @param string $hint
 	 * @param int $code
-	 * @param \Exception $previous
+	 * @param \Exception|null $previous
 	 * @since 9.0.0
 	 */
 	public function __construct($message = '', $hint = '', $code = 0, \Exception $previous = null) {
 		if (empty($message)) {
-			$message = 'Unspecified share exception';
+			$message = 'There was an error retrieving the share. Maybe the link is wrong, it was unshared, or it was deleted.';
 		}
 		parent::__construct($message, $hint, $code, $previous);
 	}

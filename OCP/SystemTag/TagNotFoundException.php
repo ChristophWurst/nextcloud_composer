@@ -3,6 +3,7 @@
  * @copyright Copyright (c) 2016, ownCloud, Inc.
  *
  * @author Joas Schilling <coding@schilljs.com>
+ * @author Lukas Reschke <lukas@statuscode.ch>
  * @author Vincent Petry <pvince81@owncloud.com>
  *
  * @license AGPL-3.0
@@ -38,7 +39,7 @@ class TagNotFoundException extends \RuntimeException {
 	 *
 	 * @param string $message
 	 * @param int $code
-	 * @param \Exception $previous
+	 * @param \Exception|null $previous
 	 * @param string[] $tags
 	 * @since 9.0.0
 	 */

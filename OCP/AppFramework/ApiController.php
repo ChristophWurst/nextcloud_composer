@@ -3,6 +3,7 @@
  * @copyright Copyright (c) 2016, ownCloud, Inc.
  *
  * @author Bernhard Posselt <dev@bernhard-posselt.com>
+ * @author Lukas Reschke <lukas@statuscode.ch>
  * @author Morris Jobke <hey@morrisjobke.de>
  * @author Stefan Weil <sw@weilnetz.de>
  *
@@ -88,7 +89,7 @@ abstract class ApiController extends Controller {
         $response = new Response();
         $response->addHeader('Access-Control-Allow-Origin', $origin);
         $response->addHeader('Access-Control-Allow-Methods', $this->corsMethods);
-        $response->addHeader('Access-Control-Max-Age', $this->corsMaxAge);
+        $response->addHeader('Access-Control-Max-Age', (string)$this->corsMaxAge);
         $response->addHeader('Access-Control-Allow-Headers', $this->corsAllowedHeaders);
         $response->addHeader('Access-Control-Allow-Credentials', 'false');
         return $response;

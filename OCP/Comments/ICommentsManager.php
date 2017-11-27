@@ -4,6 +4,9 @@
  *
  * @author Arthur Schiwon <blizzz@arthur-schiwon.de>
  * @author Joas Schilling <coding@schilljs.com>
+ * @author Lukas Reschke <lukas@statuscode.ch>
+ * @author Robin Appelman <robin@icewind.nl>
+ * @author Roeland Jago Douma <roeland@famdouma.nl>
  * @author Thomas Müller <thomas.mueller@tmit.eu>
  *
  * @license AGPL-3.0
@@ -104,7 +107,7 @@ interface ICommentsManager {
 	 * @param int $limit optional, number of maximum comments to be returned. if
 	 * not specified, all comments are returned.
 	 * @param int $offset optional, starting point
-	 * @param \DateTime $notOlderThan optional, timestamp of the oldest comments
+	 * @param \DateTime|null $notOlderThan optional, timestamp of the oldest comments
 	 * that may be returned
 	 * @return IComment[]
 	 * @since 9.0.0
@@ -120,7 +123,7 @@ interface ICommentsManager {
 	/**
 	 * @param $objectType string the object type, e.g. 'files'
 	 * @param $objectId string the id of the object
-	 * @param \DateTime $notOlderThan optional, timestamp of the oldest comments
+	 * @param \DateTime|null $notOlderThan optional, timestamp of the oldest comments
 	 * that may be returned
 	 * @return Int
 	 * @since 9.0.0

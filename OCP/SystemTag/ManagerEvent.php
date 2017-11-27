@@ -3,6 +3,7 @@
  * @copyright Copyright (c) 2016, ownCloud, Inc.
  *
  * @author Joas Schilling <coding@schilljs.com>
+ * @author Lukas Reschke <lukas@statuscode.ch>
  *
  * @license AGPL-3.0
  *
@@ -48,7 +49,7 @@ class ManagerEvent extends Event {
 	 *
 	 * @param string $event
 	 * @param ISystemTag $tag
-	 * @param ISystemTag $beforeTag
+	 * @param ISystemTag|null $beforeTag
 	 * @since 9.0.0
 	 */
 	public function __construct($event, ISystemTag $tag, ISystemTag $beforeTag = null) {

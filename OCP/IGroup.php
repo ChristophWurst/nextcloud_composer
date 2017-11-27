@@ -2,9 +2,11 @@
 /**
  * @copyright Copyright (c) 2016, ownCloud, Inc.
  *
+ * @author Julius Härtl <jus@bitgrid.net>
+ * @author Lukas Reschke <lukas@statuscode.ch>
  * @author Morris Jobke <hey@morrisjobke.de>
  * @author Robin Appelman <robin@icewind.nl>
- * @author Vincent Petry <PVince81@owncloud.com>
+ * @author Vincent Petry <pvince81@owncloud.com>
  *
  * @license AGPL-3.0
  *
@@ -60,7 +62,7 @@ interface IGroup {
 	 * @return bool
 	 * @since 8.0.0
 	 */
-	public function inGroup($user);
+	public function inGroup(IUser $user);
 
 	/**
 	 * add a user to the group
@@ -68,7 +70,7 @@ interface IGroup {
 	 * @param \OCP\IUser $user
 	 * @since 8.0.0
 	 */
-	public function addUser($user);
+	public function addUser(IUser $user);
 
 	/**
 	 * remove a user from the group

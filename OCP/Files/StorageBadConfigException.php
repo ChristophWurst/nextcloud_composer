@@ -3,6 +3,7 @@
  * @copyright Copyright (c) 2016, ownCloud, Inc.
  *
  * @author Jesús Macias <jmacias@solidgear.es>
+ * @author Lukas Reschke <lukas@statuscode.ch>
  *
  * @license AGPL-3.0
  *
@@ -31,13 +32,12 @@ class StorageBadConfigException extends StorageNotAvailableException {
 	 * ExtStorageBadConfigException constructor.
 	 *
 	 * @param string $message
-	 * @param int $code
-	 * @param \Exception $previous
+	 * @param \Exception|null $previous
 	 * @since 9.0.0
 	 */
 	public function __construct($message = '', \Exception $previous = null) {
 		$l = \OC::$server->getL10N('core');
-		parent::__construct($l->t('Storage incomplete configuration. %s', $message), self::STATUS_INCOMPLETE_CONF, $previous);
+		parent::__construct($l->t('Storage incomplete configuration. %s', [$message]), self::STATUS_INCOMPLETE_CONF, $previous);
 	}
 
 }

@@ -4,7 +4,9 @@
  *
  * @author Arthur Schiwon <blizzz@arthur-schiwon.de>
  * @author Jörn Friedrich Dreyer <jfd@butonic.de>
+ * @author Knut Ahlers <knut@ahlers.me>
  * @author Morris Jobke <hey@morrisjobke.de>
+ * @author Vincent Petry <pvince81@owncloud.com>
  *
  * @license AGPL-3.0
  *
@@ -51,6 +53,10 @@ interface GroupInterface {
 	//OBSOLETE const GET_DISPLAYNAME	= 0x00010000;
 	const COUNT_USERS		= 0x00100000;
 	const GROUP_DETAILS		= 0x01000000;
+	/**
+	 * @since 13.0.0
+	 */
+	const IS_ADMIN  = 0x10000000;
 
 	/**
 	 * Check if backend implements actions

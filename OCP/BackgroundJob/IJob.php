@@ -3,6 +3,7 @@
  * @copyright Copyright (c) 2016, ownCloud, Inc.
  *
  * @author Joas Schilling <coding@schilljs.com>
+ * @author Lukas Reschke <lukas@statuscode.ch>
  * @author Morris Jobke <hey@morrisjobke.de>
  * @author Robin Appelman <robin@icewind.nl>
  *
@@ -36,7 +37,7 @@ interface IJob {
 	 * Run the background job with the registered argument
 	 *
 	 * @param \OCP\BackgroundJob\IJobList $jobList The job list that manages the state of this job
-	 * @param ILogger $logger
+	 * @param ILogger|null $logger
 	 * @since 7.0.0
 	 */
 	public function execute($jobList, ILogger $logger = null);

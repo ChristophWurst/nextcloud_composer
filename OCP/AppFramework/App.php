@@ -3,6 +3,7 @@
  * @copyright Copyright (c) 2016, ownCloud, Inc.
  *
  * @author Bernhard Posselt <dev@bernhard-posselt.com>
+ * @author Lukas Reschke <lukas@statuscode.ch>
  * @author Morris Jobke <hey@morrisjobke.de>
  * @author Robin Appelman <robin@icewind.nl>
  * @author Roeland Jago Douma <roeland@famdouma.nl>
@@ -95,6 +96,7 @@ class App {
 	 * @param \OCP\Route\IRouter $router
 	 * @param array $routes
 	 * @since 6.0.0
+	 * @suppress PhanAccessMethodInternal
 	 */
 	public function registerRoutes($router, $routes) {
 		$routeConfig = new RouteConfig($this->container, $router, $routes);

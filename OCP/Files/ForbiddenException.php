@@ -3,6 +3,7 @@
  * @copyright Copyright (c) 2016, ownCloud, Inc.
  *
  * @author Joas Schilling <coding@schilljs.com>
+ * @author Lukas Reschke <lukas@statuscode.ch>
  *
  * @license AGPL-3.0
  *
@@ -38,7 +39,7 @@ class ForbiddenException extends \Exception {
 	/**
 	 * @param string $message
 	 * @param bool $retry
-	 * @param \Exception $previous previous exception for cascading
+	 * @param \Exception|null $previous previous exception for cascading
 	 * @since 9.0.0
 	 */
 	public function __construct($message, $retry, \Exception $previous = null) {

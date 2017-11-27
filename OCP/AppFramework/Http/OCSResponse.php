@@ -3,7 +3,9 @@
  * @copyright Copyright (c) 2016, ownCloud, Inc.
  *
  * @author Bernhard Posselt <dev@bernhard-posselt.com>
+ * @author Lukas Reschke <lukas@statuscode.ch>
  * @author Morris Jobke <hey@morrisjobke.de>
+ * @author Roeland Jago Douma <roeland@famdouma.nl>
  * @author Thomas Müller <thomas.mueller@tmit.eu>
  *
  * @license AGPL-3.0
@@ -80,9 +82,10 @@ class OCSResponse extends Response {
 	 * @return string
 	 * @since 8.1.0
 	 * @deprecated 9.2.0 To implement an OCS endpoint extend the OCSController
+	 * @suppress PhanDeprecatedClass
 	 */
 	public function render() {
-		$r = new \OC_OCS_Result($this->data, $this->statuscode, $this->message);
+		$r = new \OC\OCS\Result($this->data, $this->statuscode, $this->message);
 		$r->setTotalItems($this->itemscount);
 		$r->setItemsPerPage($this->itemsperpage);
 

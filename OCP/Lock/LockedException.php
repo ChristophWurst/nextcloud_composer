@@ -2,6 +2,7 @@
 /**
  * @copyright Copyright (c) 2016, ownCloud, Inc.
  *
+ * @author Lukas Reschke <lukas@statuscode.ch>
  * @author Morris Jobke <hey@morrisjobke.de>
  * @author Robin Appelman <robin@icewind.nl>
  * @author Vincent Petry <pvince81@owncloud.com>
@@ -43,7 +44,7 @@ class LockedException extends \Exception {
 	 * LockedException constructor.
 	 *
 	 * @param string $path locked path
-	 * @param \Exception $previous previous exception for cascading
+	 * @param \Exception|null $previous previous exception for cascading
 	 *
 	 * @since 8.1.0
 	 */

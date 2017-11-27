@@ -6,6 +6,7 @@
  * @author Frank Karlitschek <frank@karlitschek.de>
  * @author Lukas Reschke <lukas@statuscode.ch>
  * @author Morris Jobke <hey@morrisjobke.de>
+ * @author Roeland Jago Douma <roeland@famdouma.nl>
  * @author Thomas Müller <thomas.mueller@tmit.eu>
  * @author Thomas Tanghus <thomas@tanghus.net>
  * @author Vincent Petry <pvince81@owncloud.com>
@@ -45,6 +46,8 @@ class JSON {
 	 * @param array $data The data to use
 	 * @param bool $setContentType the optional content type
 	 * @deprecated 8.1.0 Use a AppFramework JSONResponse instead
+	 *
+	 * @suppress PhanDeprecatedFunction
 	 */
 	public static function encodedPrint( $data, $setContentType=true ) {
 		\OC_JSON::encodedPrint($data, $setContentType);
@@ -63,6 +66,8 @@ class JSON {
 	 * Add this call to the start of all ajax method files that requires
 	 * an authenticated user.
 	 * @deprecated 8.1.0 Use annotation based ACLs from the AppFramework instead
+	 *
+	 * @suppress PhanDeprecatedFunction
 	 */
 	public static function checkLoggedIn() {
 		\OC_JSON::checkLoggedIn();
@@ -86,6 +91,8 @@ class JSON {
 	 * parameter to the ajax call, then assign it to the template and finally
 	 * add a hidden input field also named 'requesttoken' containing the value.
 	 * @deprecated 8.1.0 Use annotation based CSRF checks from the AppFramework instead
+	 *
+	 * @suppress PhanDeprecatedFunction
 	 */
 	public static function callCheck() {
 		\OC_JSON::callCheck();
@@ -95,11 +102,11 @@ class JSON {
 	 * Send json success msg
 	 *
 	 * Return a json success message with optional extra data.
-	 * @see OCP\JSON::error()		for the format to use.
+	 * @see \OCP\JSON::error()		for the format to use.
 	 *
 	 * @param array $data The data to use
-	 * @return string json formatted string.
 	 * @deprecated 8.1.0 Use a AppFramework JSONResponse instead
+	 * @suppress PhanDeprecatedFunction
 	 */
 	public static function success( $data = array() ) {
 		\OC_JSON::success($data);
@@ -121,17 +128,18 @@ class JSON {
 	 *     {"status":"error","data":{"message":"An error happened", "id":[some value]}}
 	 *
 	 * @param array $data The data to use
-	 * @return string json formatted error string.
 	 * @deprecated 8.1.0 Use a AppFramework JSONResponse instead
+	 * @suppress PhanDeprecatedFunction
 	 */
 	public static function error( $data = array() ) {
-		\OC_JSON::error( $data );
+		\OC_JSON::error($data);
 	}
 
 	/**
 	 * Set Content-Type header to jsonrequest
 	 * @param string $type The content type header
 	 * @deprecated 8.1.0 Use a AppFramework JSONResponse instead
+	 * @suppress PhanDeprecatedFunction
 	 */
 	public static function setContentTypeHeader( $type='application/json' ) {
 		\OC_JSON::setContentTypeHeader($type);
@@ -152,6 +160,7 @@ class JSON {
 	 *
 	 * @param string $app The app to check
 	 * @deprecated 8.1.0 Use the AppFramework instead. It will automatically check if the app is enabled.
+	 * @suppress PhanDeprecatedFunction
 	 */
 	public static function checkAppEnabled( $app ) {
 		\OC_JSON::checkAppEnabled($app);
@@ -171,6 +180,7 @@ class JSON {
 	 * administrative rights.
 	 *
 	 * @deprecated 8.1.0 Use annotation based ACLs from the AppFramework instead
+	 * @suppress PhanDeprecatedFunction
 	 */
 	public static function checkAdminUser() {
 		\OC_JSON::checkAdminUser();
@@ -181,6 +191,7 @@ class JSON {
 	 * @param array $data
 	 * @return string
 	 * @deprecated 8.1.0 Use a AppFramework JSONResponse instead
+	 * @suppress PhanDeprecatedFunction
 	 */
 	public static function encode($data) {
 		return \OC_JSON::encode($data);
@@ -190,6 +201,7 @@ class JSON {
 	 * Check is a given user exists - send json error msg if not
 	 * @param string $user
 	 * @deprecated 8.1.0 Use a AppFramework JSONResponse instead
+	 * @suppress PhanDeprecatedFunction
 	 */
 	public static function checkUserExists($user) {
 		\OC_JSON::checkUserExists($user);

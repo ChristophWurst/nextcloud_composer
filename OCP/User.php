@@ -5,13 +5,13 @@
  * @author Bart Visscher <bartv@thisnet.nl>
  * @author Björn Schießle <bjoern@schiessle.org>
  * @author Frank Karlitschek <frank@karlitschek.de>
- * @author Georg Ehrke <georg@owncloud.com>
+ * @author Georg Ehrke <oc.list@georgehrke.com>
  * @author Joas Schilling <coding@schilljs.com>
  * @author Jörn Friedrich Dreyer <jfd@butonic.de>
- * @author Lorenzo M. Catucci <lorenzo@sancho.ccd.uniroma2.it>
  * @author Lukas Reschke <lukas@statuscode.ch>
  * @author Morris Jobke <hey@morrisjobke.de>
  * @author Robin McCorkell <robin@mccorkell.me.uk>
+ * @author Sebastian Wessalowski <sebastian@wessalowski.org>
  * @author Thomas Müller <thomas.mueller@tmit.eu>
  *
  * @license AGPL-3.0
@@ -89,6 +89,7 @@ class User {
 	 * @return array an array of all display names (value) and the correspondig uids (key)
 	 * @deprecated 8.1.0 use method searchDisplayName() of \OCP\IUserManager - \OC::$server->getUserManager()
 	 * @since 5.0.0
+	 * @suppress PhanDeprecatedFunction
 	 */
 	public static function getDisplayNames( $search = '', $limit = null, $offset = null ) {
 		return \OC_User::getDisplayNames( $search, $limit, $offset );
@@ -111,8 +112,8 @@ class User {
 	 * @deprecated 8.1.0 use method userExists() of \OCP\IUserManager - \OC::$server->getUserManager()
 	 * @since 5.0.0
 	 */
-	public static function userExists( $uid, $excludingBackend = null ) {
-		return \OC_User::userExists( $uid, $excludingBackend );
+	public static function userExists($uid, $excludingBackend = null) {
+		return \OC_User::userExists($uid);
 	}
 	/**
 	 * Logs the user out including all the session data

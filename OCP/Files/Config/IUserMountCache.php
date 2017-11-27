@@ -2,6 +2,7 @@
 /**
  * @copyright Copyright (c) 2016, ownCloud, Inc.
  *
+ * @author Morris Jobke <hey@morrisjobke.de>
  * @author Robin Appelman <robin@icewind.nl>
  *
  * @license AGPL-3.0
@@ -73,7 +74,7 @@ interface IUserMountCache {
 	 *
 	 * @param int $fileId
 	 * @param string|null $user optionally restrict the results to a single user @since 12.0.0
-	 * @return ICachedMountInfo[]
+	 * @return ICachedMountFileInfo[]
 	 * @since 9.0.0
 	 */
 	public function getMountsForFileId($fileId, $user = null);
@@ -104,4 +105,16 @@ interface IUserMountCache {
 	 * @since 9.0.0
 	 */
 	public function remoteStorageMounts($storageId);
+
+	/**
+	 * Get the used space for users
+	 *
+	 * Note that this only includes the space in their home directory,
+	 * not any incoming shares or external storages.
+	 *
+	 * @param IUser[] $users
+	 * @return int[] [$userId => $userSpace]
+	 * @since 13.0.0
+	 */
+	public function getUsedSpaceForUsers(array $users);
 }

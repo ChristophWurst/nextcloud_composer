@@ -2,6 +2,9 @@
 /**
  * @copyright 2017, Morris Jobke <hey@morrisjobke.de>
  *
+ * @author Joas Schilling <coding@schilljs.com>
+ * @author Leon Klingele <leon@struktur.de>
+ * @author Lukas Reschke <lukas@statuscode.ch>
  * @author Morris Jobke <hey@morrisjobke.de>
  *
  * @license GNU AGPL version 3 or any later version
@@ -36,7 +39,7 @@ namespace OCP\Mail;
  *
  * $emailTemplate->addHeader();
  * $emailTemplate->addHeading('Welcome aboard');
- * $emailTemplate->addBodyText('You have now an Nextcloud account, you can add, protect, and share your data.');
+ * $emailTemplate->addBodyText('Welcome to your Nextcloud account, you can add, protect, and share your data.');
  *
  * $emailTemplate->addBodyButtonGroup(
  *     'Set your password', 'https://example.org/resetPassword/q1234567890qwertz',
@@ -53,6 +56,15 @@ namespace OCP\Mail;
 interface IEMailTemplate {
 
 	/**
+	 * Sets the subject of the email
+	 *
+	 * @param string $subject
+	 *
+	 * @since 13.0.0
+	 */
+	public function setSubject($subject);
+
+	/**
 	 * Adds a header to the email
 	 *
 	 * @since 12.0.0
@@ -63,7 +75,7 @@ interface IEMailTemplate {
 	 * Adds a heading to the email
 	 *
 	 * @param string $title
-	 * @param string $plainTitle|bool Title that is used in the plain text email
+	 * @param string|bool $plainTitle Title that is used in the plain text email
 	 *   if empty the $title is used, if false none will be used
 	 *
 	 * @since 12.0.0
@@ -129,6 +141,15 @@ interface IEMailTemplate {
 	 * @since 12.0.0
 	 */
 	public function addFooter($text = '');
+
+	/**
+	 * Returns the rendered email subject as string
+	 *
+	 * @return string
+	 *
+	 * @since 13.0.0
+	 */
+	public function renderSubject();
 
 	/**
 	 * Returns the rendered HTML email as string

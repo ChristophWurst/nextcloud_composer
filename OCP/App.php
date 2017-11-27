@@ -4,7 +4,7 @@
  *
  * @author Bart Visscher <bartv@thisnet.nl>
  * @author Frank Karlitschek <frank@karlitschek.de>
- * @author Georg Ehrke <georg@owncloud.com>
+ * @author Georg Ehrke <oc.list@georgehrke.com>
  * @author Joas Schilling <coding@schilljs.com>
  * @author Jörn Friedrich Dreyer <jfd@butonic.de>
  * @author Morris Jobke <hey@morrisjobke.de>
@@ -127,9 +127,10 @@ class App {
 	 *
 	 * This function checks whether or not an app is enabled.
 	 * @since 4.0.0
+	 * @deprecated 13.0.0 use \OC::$server->getAppManager()->isEnabledForUser($appId)
 	 */
 	public static function isEnabled( $app ) {
-		return \OC_App::isEnabled( $app );
+		return \OC::$server->getAppManager()->isEnabledForUser( $app );
 	}
 
 	/**

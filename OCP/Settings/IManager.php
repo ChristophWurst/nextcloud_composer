@@ -3,6 +3,7 @@
  * @copyright Copyright (c) 2016 Arthur Schiwon <blizzz@arthur-schiwon.de>
  *
  * @author Arthur Schiwon <blizzz@arthur-schiwon.de>
+ * @author Lukas Reschke <lukas@statuscode.ch>
  *
  * @license GNU AGPL version 3 or any later version
  *
@@ -36,6 +37,16 @@ interface IManager {
 	 * @since 9.1.0
 	 */
 	const KEY_ADMIN_SECTION  = 'admin-section';
+
+	/**
+	 * @since 13.0.0
+	 */
+	const KEY_PERSONAL_SETTINGS = 'personal';
+
+	/**
+	 * @since 13.0.0
+	 */
+	const KEY_PERSONAL_SECTION  = 'personal-section';
 
 	/**
 	 * sets up settings according to data specified by an apps info.xml, within
@@ -88,6 +99,14 @@ interface IManager {
 	public function getAdminSections();
 
 	/**
+	 * returns a list of the personal sections
+	 *
+	 * @return array array of ISection[] where key is the priority
+	 * @since 13.0.0
+	 */
+	public function getPersonalSections();
+
+	/**
 	 * returns a list of the admin settings
 	 *
 	 * @param string $section the section id for which to load the settings
@@ -95,4 +114,13 @@ interface IManager {
 	 * @since 9.1.0
 	 */
 	public function getAdminSettings($section);
+
+	/**
+	 * returns a list of the personal  settings
+	 *
+	 * @param string $section the section id for which to load the settings
+	 * @return array array of IPersonal[] where key is the priority
+	 * @since 13.0.0
+	 */
+	public function getPersonalSettings($section);
 }

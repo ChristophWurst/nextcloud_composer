@@ -2,9 +2,10 @@
 /**
  * @copyright Copyright (c) 2016, ownCloud, Inc.
  *
+ * @author Lukas Reschke <lukas@statuscode.ch>
  * @author Morris Jobke <hey@morrisjobke.de>
+ * @author Piotr Mrówczyński <mrow4a@yahoo.com>
  * @author Robin Appelman <robin@icewind.nl>
- * @author Piotr Mrowczynski <piotr@owncloud.com>
  *
  * @license AGPL-3.0
  *
@@ -39,8 +40,8 @@ interface IQueryLogger extends SQLLogger {
 	 * query is finished finalized with stopQuery() method. 
 	 * 
 	 * @param string $sql
-	 * @param array $params
-	 * @param array $types
+	 * @param array|null $params
+	 * @param array|null $types
 	 * @since 8.0.0
 	 */
 	public function startQuery($sql, array $params = null, array $types = null);

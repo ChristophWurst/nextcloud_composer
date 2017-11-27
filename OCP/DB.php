@@ -4,12 +4,13 @@
  *
  * @author Bart Visscher <bartv@thisnet.nl>
  * @author Dan Bartram <daneybartram@gmail.com>
- * @author Felix Moeller <mail@felixmoeller.de>
  * @author Frank Karlitschek <frank@karlitschek.de>
  * @author Joas Schilling <coding@schilljs.com>
  * @author Jörn Friedrich Dreyer <jfd@butonic.de>
+ * @author Lukas Reschke <lukas@statuscode.ch>
  * @author Morris Jobke <hey@morrisjobke.de>
  * @author Robin Appelman <robin@icewind.nl>
+ * @author Roeland Jago Douma <roeland@famdouma.nl>
  * @author Thomas Müller <thomas.mueller@tmit.eu>
  * @author Thomas Tanghus <thomas@tanghus.net>
  *
@@ -57,7 +58,7 @@ class DB {
 	 * @since 4.5.0
 	 */
 	static public function prepare( $query, $limit=null, $offset=null ) {
-		return(\OC_DB::prepare($query, $limit, $offset));
+		return \OC_DB::prepare($query, $limit, $offset);
 	}
 
 	/**
@@ -90,7 +91,7 @@ class DB {
 	 * @since 4.5.0
 	 */
 	public static function insertid($table=null) {
-		return \OC::$server->getDatabaseConnection()->lastInsertId($table);
+		return (string)\OC::$server->getDatabaseConnection()->lastInsertId($table);
 	}
 
 	/**
@@ -117,7 +118,7 @@ class DB {
 	 * @since 8.0.0
 	 */
 	public static function rollback() {
-		\OC::$server->getDatabaseConnection()->rollback();
+		\OC::$server->getDatabaseConnection()->rollBack();
 	}
 
 	/**

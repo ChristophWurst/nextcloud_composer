@@ -2,6 +2,7 @@
 /**
  * @copyright Copyright (c) 2016, ownCloud, Inc.
  *
+ * @author Bjoern Schiessle <bjoern@schiessle.org>
  * @author Björn Schießle <bjoern@schiessle.org>
  * @author Lukas Reschke <lukas@statuscode.ch>
  * @author Morris Jobke <hey@morrisjobke.de>
@@ -181,5 +182,15 @@ interface IEncryptionModule {
 	 * @since 9.1.0
 	 */
 	public function isReadyForUser($user);
+
+	/**
+	 * Does the encryption module needs a detailed list of users with access to the file?
+	 * For example if the encryption module uses per-user encryption keys and needs to know
+	 * the users with access to the file to encrypt/decrypt it.
+	 *
+	 * @since 13.0.0
+	 * @return bool
+	 */
+	public function needDetailedAccessList();
 
 }

@@ -5,10 +5,8 @@
  * @author Bart Visscher <bartv@thisnet.nl>
  * @author Bernhard Posselt <dev@bernhard-posselt.com>
  * @author Joas Schilling <coding@schilljs.com>
- * @author Jörn Friedrich Dreyer <jfd@butonic.de>
  * @author Morris Jobke <hey@morrisjobke.de>
- * @author Robin McCorkell <robin@mccorkell.me.uk>
- * @author Thomas Müller <thomas.mueller@tmit.eu>
+ * @author Roeland Jago Douma <roeland@famdouma.nl>
  *
  * @license AGPL-3.0
  *
@@ -47,7 +45,7 @@ interface IL10N {
 	 * Translating
 	 * @param string $text The text we need a translation for
 	 * @param array $parameters default:array() Parameters for sprintf
-	 * @return \OC_L10N_String Translation or the same text
+	 * @return string Translation or the same text
 	 *
 	 * Returns the translation. If no translation is found, $text will be
 	 * returned.
@@ -61,7 +59,7 @@ interface IL10N {
 	 * @param string $text_plural the string to translate for n objects
 	 * @param integer $count Number of objects
 	 * @param array $parameters default:array() Parameters for sprintf
-	 * @return \OC_L10N_String Translation or the same text
+	 * @return string Translation or the same text
 	 *
 	 * Returns the translation. If no translation is found, $text will be
 	 * returned. %n will be replaced with the number of objects.
