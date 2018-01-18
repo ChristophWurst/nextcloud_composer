@@ -44,6 +44,7 @@ namespace OCP;
  * This class provides access to the user management. You can get information
  * about the currently logged in user and the permissions for example
  * @since 5.0.0
+ * @deprecated 13.0.0
  */
 class User {
 	/**
@@ -99,6 +100,7 @@ class User {
 	 * Check if the user is logged in
 	 * @return boolean
 	 * @since 5.0.0
+	 * @deprecated 13.0.0 Use annotation based ACLs from the AppFramework instead
 	 */
 	public static function isLoggedIn() {
 		return \OC::$server->getUserSession()->isLoggedIn();
@@ -113,35 +115,13 @@ class User {
 	 * @since 5.0.0
 	 */
 	public static function userExists($uid, $excludingBackend = null) {
-		return \OC_User::userExists($uid);
-	}
-	/**
-	 * Logs the user out including all the session data
-	 * Logout, destroys session
-	 * @deprecated 8.0.0 Use \OC::$server->getUserSession()->logout();
-	 * @since 5.0.0
-	 */
-	public static function logout() {
-		\OC::$server->getUserSession()->logout();
-	}
-
-	/**
-	 * Check if the password is correct
-	 * @param string $uid The username
-	 * @param string $password The password
-	 * @return string|false username on success, false otherwise
-	 *
-	 * Check if the password is correct without logging in the user
-	 * @deprecated 8.0.0 Use \OC::$server->getUserManager()->checkPassword();
-	 * @since 5.0.0
-	 */
-	public static function checkPassword( $uid, $password ) {
-		return \OC_User::checkPassword( $uid, $password );
+		return \OC::$server->getUserManager()->userExists($uid);
 	}
 
 	/**
 	 * Check if the user is a admin, redirects to home if not
 	 * @since 5.0.0
+	 * @deprecated 13.0.0 Use annotation based ACLs from the AppFramework instead
 	 */
 	public static function checkAdminUser() {
 		\OC_Util::checkAdminUser();
@@ -151,6 +131,7 @@ class User {
 	 * Check if the user is logged in, redirects to home if not. With
 	 * redirect URL parameter to the request URI.
 	 * @since 5.0.0
+	 * @deprecated 13.0.0 Use annotation based ACLs from the AppFramework instead
 	 */
 	public static function checkLoggedIn() {
 		\OC_Util::checkLoggedIn();

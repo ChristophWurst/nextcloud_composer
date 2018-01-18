@@ -9,5 +9,10 @@
             "email": "christoph@winzerhof-wurst.at"
         }
     ],
-    "require": {}
+    "require": {},
+    "extra": {
+        "branch-alias": {
+            "dev-master": "14.0.0-dev"
+        }
+    }
 }
