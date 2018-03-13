@@ -1,0 +1,5 @@
+language: php
+script:
+  - ./build.sh
+  - git diff-index --quiet HEAD --
+
