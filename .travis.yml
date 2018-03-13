@@ -1,6 +1,8 @@
 language: php
 script:
   - ./build.sh
+  - ls
+  - git status
   - git diff-index HEAD
   - git diff-index --quiet HEAD --
 
