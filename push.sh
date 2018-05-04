@@ -9,7 +9,7 @@ if [ ! $(git diff-index --quiet HEAD --) ]; then
 	git config --global user.name "Travis CI"
 	git add -A
 	git commit -a -m "Update OCP"
-	git push
+	git push origin:$TRAVIS_BRANCH
 else
 	echo "no changes detected"
 fi
