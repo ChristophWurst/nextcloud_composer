@@ -10,7 +10,7 @@ if [ ! $(git diff-index --quiet HEAD --) ]; then
 	git add -A
 	git commit -a -m "Update OCP"
 	git remote add origin https://${GITHUB_TOKEN}@github.com/ChristophWurst/nextcloud_composer.git > /dev/null 2>&1
-	git push --quiet --set-upstream origin $TRAVIS_BRANCH
+	git push --set-upstream origin $TRAVIS_BRANCH
 	git push origin:$TRAVIS_BRANCH
 else
 	echo "no changes detected"
