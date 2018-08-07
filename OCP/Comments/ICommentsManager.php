@@ -157,11 +157,10 @@ interface ICommentsManager {
 	 * @param $objectId string the id of the object
 	 * @param \DateTime|null $notOlderThan optional, timestamp of the oldest comments
 	 * that may be returned
-	 * @param string $verb Limit the verb of the comment - Added in 14.0.0
 	 * @return Int
 	 * @since 9.0.0
 	 */
-	public function getNumberOfCommentsForObject($objectType, $objectId, \DateTime $notOlderThan = null, $verb = '');
+	public function getNumberOfCommentsForObject($objectType, $objectId, \DateTime $notOlderThan = null);
 
 	/**
 	 * Get the number of unread comments for all files in a folder
