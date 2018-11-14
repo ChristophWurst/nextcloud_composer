@@ -26,8 +26,6 @@
 
 namespace OCP;
 
-use OCP\UserInterface;
-
 /**
  * Interface IUser
  *
@@ -113,7 +111,6 @@ interface IUser {
 	/**
 	 * Get the backend for the current user object
 	 *
-	 * @return UserInterface
 	 * @since 15.0.0
 	 */
 	public function getBackend();
