@@ -1,11 +1,6 @@
 <?php
-
-declare(strict_types=1);
-
 /**
- * @copyright 2018 Christoph Wurst <christoph@winzerhof-wurst.at>
- *
- * @author 2018 Christoph Wurst <christoph@winzerhof-wurst.at>
+ * @copyright Copyright (c) 2018 Robin Appelman <robin@icewind.nl>
  *
  * @license GNU AGPL version 3 or any later version
  *
@@ -24,28 +19,13 @@ declare(strict_types=1);
  *
  */
 
-namespace OCP\Authentication\TwoFactorAuth;
-
-use OCP\IUser;
+namespace OCP\Files\Storage;
 
 /**
- * Marks a 2FA provider as activatable by the administrator. This means that an
- * admin can activate this provider without user interaction. The provider,
- * therefore, must not require any user-provided configuration.
+ * Marks that a storage does not support server side encryption
  *
- * @since 15.0.0
+ * @since 16.0.0
  */
-interface IActivatableByAdmin extends IProvider {
-
-	/**
-	 * Enable this provider for the given user.
-	 *
-	 * @param IUser $user the user to activate this provider for
-	 *
-	 * @return void
-	 *
-	 * @since 15.0.0
-	 */
-	public function enableFor(IUser $user);
+interface IDisableEncryptionStorage {
 
 }
