@@ -31,14 +31,13 @@ declare(strict_types=1);
 namespace OCP\Files_FullTextSearch\Model;
 
 
-use OC\FullTextSearch\Model\IndexDocument;
-use OCP\FullTextSearch\Model\IIndexDocument;
+use OCP\FullTextSearch\Model\IndexDocument;
 
 
 /**
  * Abstract Class AFilesDocument
  *
- * This is mostly used by 3rd party apps that want to complete the IIndexDocument
+ * This is mostly used by 3rd party apps that want to complete the IndexDocument
  * with more information about a file before its index:
  *
  *    \OC::$server->getEventDispatcher()->addListener(
@@ -49,6 +48,7 @@ use OCP\FullTextSearch\Model\IIndexDocument;
  *
  *            // @var \OCP\Files_FullTextSearch\Model\AFilesDocument $document
  *            $document = $e->getArgument('document');
+ *
  *        }
  *    );
  *
@@ -106,6 +106,7 @@ abstract class AFilesDocument extends IndexDocument {
 	 * @return string
 	 */
 	abstract public function getPath(): string;
+
 
 }
 

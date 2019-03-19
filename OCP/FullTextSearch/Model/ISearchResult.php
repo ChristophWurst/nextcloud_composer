@@ -78,31 +78,31 @@ interface ISearchResult {
 
 
 	/**
-	 * Add an IIndexDocument as one of the result of the search request.
+	 * Add an IndexDocument as one of the result of the search request.
 	 *
 	 * @since 15.0.0
 	 *
-	 * @param IIndexDocument $document
+	 * @param IndexDocument $document
 	 *
 	 * @return ISearchResult
 	 */
-	public function addDocument(IIndexDocument $document): ISearchResult;
+	public function addDocument(IndexDocument $document): ISearchResult;
 
 	/**
-	 * Returns all result of the search request, in an array of IIndexDocument.
+	 * Returns all result of the search request, in an array of IndexDocument.
 	 *
 	 * @since 15.0.0
 	 *
-	 * @return IIndexDocument[]
+	 * @return IndexDocument[]
 	 */
 	public function getDocuments(): array;
 
 	/**
-	 * Set an array of IIndexDocument as the result of the search request.
+	 * Set an array of IndexDocument as the result of the search request.
 	 *
 	 * @since 15.0.0
 	 *
-	 * @param IIndexDocument[] $documents
+	 * @param IndexDocument[] $documents
 	 *
 	 * @return ISearchResult
 	 */
