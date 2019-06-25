@@ -1,9 +1,11 @@
 <?php
+
 declare(strict_types=1);
+
 /**
- * @copyright Copyright (c) 2018, Roeland Jago Douma <roeland@famdouma.nl>
+ * @copyright 2019 Christoph Wurst <christoph@winzerhof-wurst.at>
  *
- * @author Roeland Jago Douma <roeland@famdouma.nl>
+ * @author 2019 Christoph Wurst <christoph@winzerhof-wurst.at>
  *
  * @license GNU AGPL version 3 or any later version
  *
@@ -19,45 +21,20 @@ declare(strict_types=1);
  *
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
  */
 
-namespace OCP\Authentication\TwoFactorAuth;
-
-use OCP\EventDispatcher\Event;
-use OCP\IUser;
+namespace OCP\EventDispatcher;
 
 /**
- * @since 15.0.0
+ * @since 17.0.0
  */
-class RegistryEvent extends Event {
-
-	/** @var IProvider */
-	private $provider;
-
-	/** @IUser */
-	private $user;
+interface IEventListener {
 
 	/**
-	 * @since 15.0.0
+	 * @param Event $event
+	 *
+	 * @since 17.0.0
 	 */
-	public function __construct(IProvider $provider, IUser $user) {
-		parent::__construct();
-		$this->provider = $provider;
-		$this->user = $user;
-	}
+	public function handle(Event $event): void;
 
-	/**
-	 * @since 15.0.0
-	 */
-	public function getProvider(): IProvider {
-		return $this->provider;
-	}
-
-	/**
-	 * @since 15.0.0
-	 */
-	public function getUser(): IUser {
-		return $this->user;
-	}
 }
