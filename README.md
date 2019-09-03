@@ -6,7 +6,6 @@
 |stable17|[![Build Status](https://travis-ci.org/ChristophWurst/nextcloud_composer.svg?branch=stable17)](https://travis-ci.org/ChristophWurst/nextcloud_composer)|
 |stable16|[![Build Status](https://travis-ci.org/ChristophWurst/nextcloud_composer.svg?branch=stable16)](https://travis-ci.org/ChristophWurst/nextcloud_composer)|
 |stable15|[![Build Status](https://travis-ci.org/ChristophWurst/nextcloud_composer.svg?branch=stable15)](https://travis-ci.org/ChristophWurst/nextcloud_composer)|
-|stable15.0.0|[![Build Status](https://travis-ci.org/ChristophWurst/nextcloud_composer.svg?branch=stable15.0.0)](https://travis-ci.org/ChristophWurst/nextcloud_composer)|
 |stable14|[![Build Status](https://travis-ci.org/ChristophWurst/nextcloud_composer.svg?branch=stable14)](https://travis-ci.org/ChristophWurst/nextcloud_composer)|
 |stable13|[![stable13](https://travis-ci.org/ChristophWurst/nextcloud_composer.svg?branch=stable13)](https://travis-ci.org/ChristophWurst/nextcloud_composer)|
 
