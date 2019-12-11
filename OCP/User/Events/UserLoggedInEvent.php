@@ -1,8 +1,12 @@
 <?php
+
+declare(strict_types=1);
+
 /**
- * @copyright Copyright (c) 2019 Julius Härtl <jus@bitgrid.net>
+ * @copyright Copyright (c) 2019, Roeland Jago Douma <roeland@famdouma.nl>
  *
- * @author Julius Härtl <jus@bitgrid.net>
+ * @author Christoph Wurst <christoph@winzerhof-wurst.at>
+ * @author Roeland Jago Douma <roeland@famdouma.nl>
  *
  * @license GNU AGPL version 3 or any later version
  *
@@ -21,65 +25,53 @@
  *
  */
 
-namespace OCP\DirectEditing;
+namespace OCP\User\Events;
 
-
-use OCP\Files\File;
-use OCP\Files\NotFoundException;
+use OCP\EventDispatcher\Event;
+use OCP\IUser;
 
 /**
  * @since 18.0.0
  */
-interface IToken {
+class UserLoggedInEvent extends Event {
 
-	/**
-	 * Extend the token validity time
-	 *
-	 * @since 18.0.0
-	 */
-	public function extend(): void;
+	/** @var IUser */
+	private $user;
 
-	/**
-	 * Invalidate the token
-	 *
-	 * @since 18.0.0
-	 */
-	public function invalidate(): void;
+	/** @var string */
+	private $password;
 
-	/**
-	 * Check if the token has already been used
-	 *
-	 * @since 18.0.0
-	 * @return bool
-	 */
-	public function hasBeenAccessed(): bool;
-
-	/**
-	 * Change to the user scope of the token
-	 *
-	 * @since 18.0.0
-	 */
-	public function useTokenScope(): void;
-
-	/**
-	 * Get the file that is related to the token
-	 *
-	 * @since 18.0.0
-	 * @return File
-	 * @throws NotFoundException
-	 */
-	public function getFile(): File;
+	/** @var bool */
+	private $isTokenLogin;
 
 	/**
 	 * @since 18.0.0
-	 * @return string
 	 */
-	public function getEditor(): string;
+	public function __construct(IUser $user, string $password, bool $isTokenLogin) {
+		parent::__construct();
+		$this->user = $user;
+		$this->password = $password;
+		$this->isTokenLogin = $isTokenLogin;
+	}
 
 	/**
 	 * @since 18.0.0
-	 * @return string
 	 */
-	public function getUser(): string;
+	public function getUser(): IUser {
+		return $this->user;
+	}
 
+	/**
+	 * @since 18.0.0
+	 */
+	public function getPassword(): string {
+		return $this->password;
+	}
+
+	/**
+	 * @since 18.0.0
+	 */
+	public function isTokenLogin(): bool {
+		return $this->isTokenLogin;
+	}
 }
