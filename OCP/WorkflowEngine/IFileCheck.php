@@ -1,7 +1,5 @@
 <?php
-
 declare(strict_types=1);
-
 /**
  * @copyright Copyright (c) 2019 Arthur Schiwon <blizzz@arthur-schiwon.de>
  *
@@ -20,7 +18,7 @@ declare(strict_types=1);
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
 
@@ -37,11 +35,8 @@ use OCP\Files\Storage\IStorage;
  */
 interface IFileCheck extends IEntityCheck {
 	/**
-	 * @param IStorage $storage
-	 * @param string $path
-	 * @param bool $isDir
 	 * @since 18.0.0
 	 */
-	public function setFileInfo(IStorage $storage, string $path, bool $isDir = false): void;
+	public function setFileInfo(IStorage $storage, string $path);
 
 }

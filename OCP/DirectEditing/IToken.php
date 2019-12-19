@@ -13,7 +13,7 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
@@ -25,7 +25,6 @@ namespace OCP\DirectEditing;
 
 
 use OCP\Files\File;
-use OCP\Files\NotFoundException;
 
 /**
  * @since 18.0.0
@@ -66,7 +65,6 @@ interface IToken {
 	 *
 	 * @since 18.0.0
 	 * @return File
-	 * @throws NotFoundException
 	 */
 	public function getFile(): File;
 
