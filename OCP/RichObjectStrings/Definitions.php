@@ -26,6 +26,7 @@
 
 namespace OCP\RichObjectStrings;
 
+
 /**
  * Class Definitions
  *

@@ -37,7 +37,6 @@ declare(strict_types=1);
  */
 
 namespace OCP\AppFramework;
-
 use OC\AppFramework\Routing\RouteConfig;
 use OC\ServerContainer;
 use OCP\Route\IRouter;

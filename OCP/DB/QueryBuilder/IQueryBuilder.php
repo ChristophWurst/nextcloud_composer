@@ -26,6 +26,7 @@
 
 namespace OCP\DB\QueryBuilder;
 
+
 use Doctrine\DBAL\Connection;
 
 /**

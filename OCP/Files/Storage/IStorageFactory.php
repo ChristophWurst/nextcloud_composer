@@ -23,7 +23,6 @@
  */
 
 namespace OCP\Files\Storage;
-
 use OCP\Files\Mount\IMountPoint;
 
 /**

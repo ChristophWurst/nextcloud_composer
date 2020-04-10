@@ -26,6 +26,7 @@ declare(strict_types=1);
 
 namespace OCP\FullTextSearch;
 
+
 use OCP\FullTextSearch\Model\IIndex;
 use OCP\FullTextSearch\Model\ISearchResult;
 use OCP\FullTextSearch\Service\IIndexService;

@@ -58,7 +58,7 @@ abstract class QBMapper {
 	 * mapped to queries without using sql
 	 * @since 14.0.0
 	 */
-	public function __construct(IDBConnection $db, string $tableName, string $entityClass=null) {
+	public function __construct(IDBConnection $db, string $tableName, string $entityClass=null){
 		$this->db = $db;
 		$this->tableName = $tableName;
 
@@ -261,7 +261,7 @@ abstract class QBMapper {
 
 		$row2 = $cursor->fetch();
 		$cursor->closeCursor();
-		if($row2 !== false) {
+		if($row2 !== false ) {
 			$msg = $this->buildDebugMessage(
 				'Did not expect more than one result when executing', $query
 			);

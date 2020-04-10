@@ -27,13 +27,14 @@ declare(strict_types=1);
 namespace OCP\User\Events;
 
 use OCP\EventDispatcher\Event;
+use OCP\IUser;
 
 /**
  * @since 18.0.0
  */
 class BeforeUserLoggedInEvent extends Event {
 
-	/** @var string */
+	/** @var IUser */
 	private $username;
 
 	/** @var string */
@@ -49,11 +50,9 @@ class BeforeUserLoggedInEvent extends Event {
 	}
 
 	/**
-	 * returns the login name, which must not necessarily match to a user ID
-	 *
 	 * @since 18.0.0
 	 */
-	public function getUsername(): string {
+	public function getUsername(): IUser {
 		return $this->username;
 	}
 

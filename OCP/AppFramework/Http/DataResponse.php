@@ -53,7 +53,7 @@ class DataResponse extends Response {
 	 * @since 8.0.0
 	 */
 	public function __construct($data=[], $statusCode=Http::STATUS_OK,
-								array $headers=[]) {
+	                            array $headers=[]) {
 		parent::__construct();
 
 		$this->data = $data;
@@ -68,7 +68,7 @@ class DataResponse extends Response {
 	 * @return DataResponse Reference to this object
 	 * @since 8.0.0
 	 */
-	public function setData($data) {
+	public function setData($data){
 		$this->data = $data;
 
 		return $this;
@@ -80,7 +80,7 @@ class DataResponse extends Response {
 	 * @return array the data
 	 * @since 8.0.0
 	 */
-	public function getData() {
+	public function getData(){
 		return $this->data;
 	}
 

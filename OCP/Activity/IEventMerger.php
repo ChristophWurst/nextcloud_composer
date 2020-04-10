@@ -23,6 +23,7 @@
 
 namespace OCP\Activity;
 
+
 /**
  * Interface EventMerger
  *

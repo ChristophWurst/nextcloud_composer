@@ -26,6 +26,7 @@
 
 namespace OCP\Files;
 
+
 /**
  * Interface IMimeTypeDetector
  * @package OCP\Files

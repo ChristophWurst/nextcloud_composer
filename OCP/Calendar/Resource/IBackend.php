@@ -22,7 +22,6 @@
  */
 
 namespace OCP\Calendar\Resource;
-
 use OCP\Calendar\BackendTemporarilyUnavailableException;
 
 /**
