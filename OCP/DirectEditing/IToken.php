@@ -23,7 +23,6 @@
 
 namespace OCP\DirectEditing;
 
-
 use OCP\Files\File;
 use OCP\Files\NotFoundException;
 
@@ -81,5 +80,4 @@ interface IToken {
 	 * @return string
 	 */
 	public function getUser(): string;
-
 }

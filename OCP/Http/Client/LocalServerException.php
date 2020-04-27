@@ -1,11 +1,7 @@
 <?php
-
 declare(strict_types=1);
-
 /**
- * @copyright Copyright (c) 2018, Roeland Jago Douma <roeland@famdouma.nl>
- *
- * @author Roeland Jago Douma <roeland@famdouma.nl>
+ * @copyright Copyright (c) 2020 Joas Schilling <coding@schilljs.com>
  *
  * @license GNU AGPL version 3 or any later version
  *
@@ -20,14 +16,14 @@ declare(strict_types=1);
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
 
-namespace OCP\AppFramework\Db;
+namespace OCP\Http\Client;
 
 /**
- * @since 16.0.0
+ * @since 19.0.0
  */
-interface IMapperException {
+class LocalServerException extends \RuntimeException {
 }

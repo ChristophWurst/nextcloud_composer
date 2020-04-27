@@ -27,7 +27,6 @@ declare(strict_types=1);
 
 namespace OCP\Lock;
 
-
 /**
  * Class ManuallyLockedException
  *
@@ -86,5 +85,4 @@ class ManuallyLockedException extends LockedException {
 	public function getOwner(): ?string {
 		return $this->owner;
 	}
-
 }

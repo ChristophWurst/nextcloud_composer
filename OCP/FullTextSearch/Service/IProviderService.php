@@ -26,7 +26,6 @@ declare(strict_types=1);
 
 namespace OCP\FullTextSearch\Service;
 
-
 /**
  * Interface IProviderService
  *
@@ -55,6 +54,4 @@ interface IProviderService {
 	 * @since 15.0.0
 	 */
 	public function addJavascriptAPI();
-
-
 }

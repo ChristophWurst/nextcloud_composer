@@ -26,7 +26,6 @@ declare(strict_types=1);
 
 namespace OCP\FullTextSearch\Service;
 
-
 use OCP\FullTextSearch\Model\ISearchRequest;
 use OCP\FullTextSearch\Model\ISearchResult;
 
@@ -79,5 +78,4 @@ interface ISearchService {
 	 * @return ISearchResult[]
 	 */
 	public function search(string $userId, ISearchRequest $searchRequest): array;
-
 }

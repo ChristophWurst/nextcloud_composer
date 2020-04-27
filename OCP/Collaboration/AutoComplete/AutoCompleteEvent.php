@@ -26,7 +26,6 @@ declare(strict_types=1);
 
 namespace OCP\Collaboration\AutoComplete;
 
-
 use Symfony\Component\EventDispatcher\GenericEvent;
 
 /**
@@ -99,5 +98,4 @@ class AutoCompleteEvent extends GenericEvent {
 	public function getLimit(): int {
 		return $this->getArgument('limit');
 	}
-
 }

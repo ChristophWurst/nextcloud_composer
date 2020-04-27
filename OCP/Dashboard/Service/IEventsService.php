@@ -26,7 +26,6 @@ declare(strict_types=1);
 
 namespace OCP\Dashboard\Service;
 
-
 use OCP\Dashboard\IDashboardManager;
 
 /**
@@ -84,6 +83,4 @@ interface IEventsService {
 	 * @param string $uniqueId
 	 */
 	public function createGlobalEvent(string $widgetId, array $payload, string $uniqueId);
-
-
 }

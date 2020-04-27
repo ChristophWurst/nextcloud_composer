@@ -26,7 +26,6 @@ declare(strict_types=1);
 
 namespace OCP\FullTextSearch\Model;
 
-
 use OCP\FullTextSearch\IFullTextSearchProvider;
 
 /**
@@ -188,5 +187,4 @@ interface ISearchResult {
 	 * @return ISearchResult
 	 */
 	public function setTimedOut(bool $timedOut): ISearchResult;
-
 }

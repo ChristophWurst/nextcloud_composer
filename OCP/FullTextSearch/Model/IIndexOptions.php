@@ -26,7 +26,6 @@ declare(strict_types=1);
 
 namespace OCP\FullTextSearch\Model;
 
-
 /**
  * Interface IIndexOptions
  *
@@ -77,5 +76,4 @@ interface IIndexOptions {
 	 * @return bool
 	 */
 	public function getOptionBool(string $option, bool $default): bool;
-
 }

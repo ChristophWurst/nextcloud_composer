@@ -26,7 +26,6 @@ declare(strict_types=1);
 
 namespace OCP\Files_FullTextSearch\Model;
 
-
 use OC\FullTextSearch\Model\IndexDocument;
 use OCP\FullTextSearch\Model\IIndexDocument;
 
@@ -101,5 +100,4 @@ abstract class AFilesDocument extends IndexDocument {
 	 * @return string
 	 */
 	abstract public function getPath(): string;
-
 }

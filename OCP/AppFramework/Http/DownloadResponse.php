@@ -25,13 +25,11 @@
 
 namespace OCP\AppFramework\Http;
 
-
 /**
  * Prompts the user to download the a file
  * @since 7.0.0
  */
 class DownloadResponse extends Response {
-
 	private $filename;
 	private $contentType;
 
@@ -50,6 +48,4 @@ class DownloadResponse extends Response {
 		$this->addHeader('Content-Disposition', 'attachment; filename="' . $filename . '"');
 		$this->addHeader('Content-Type', $contentType);
 	}
-
-
 }

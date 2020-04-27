@@ -26,7 +26,6 @@ declare(strict_types=1);
 
 namespace OCP\FullTextSearch\Model;
 
-
 /**
  * @since 16.0.0
  *
@@ -40,17 +39,17 @@ interface ISearchOption {
 	/**
 	 * @since 16.0.0
 	 */
-	const CHECKBOX = 'checkbox';
+	public const CHECKBOX = 'checkbox';
 
 	/**
 	 * @since 16.0.0
 	 */
-	const INPUT = 'input';
+	public const INPUT = 'input';
 
 	/**
 	 * @since 16.0.0
 	 */
-	const INPUT_SMALL = 'small';
+	public const INPUT_SMALL = 'small';
 
 
 	/**
@@ -163,5 +162,4 @@ interface ISearchOption {
 	 * @return string
 	 */
 	public function getPlaceholder(): string;
-
 }

@@ -26,7 +26,6 @@ declare(strict_types=1);
 
 namespace OCP\FullTextSearch\Model;
 
-
 /**
  * Interface IRunner
  *
@@ -42,11 +41,9 @@ namespace OCP\FullTextSearch\Model;
  * @package OCP\FullTextSearch\Model
  */
 interface IRunner {
-
-
-	const RESULT_TYPE_SUCCESS = 1;
-	const RESULT_TYPE_WARNING = 4;
-	const RESULT_TYPE_FAIL = 9;
+	public const RESULT_TYPE_SUCCESS = 1;
+	public const RESULT_TYPE_WARNING = 4;
+	public const RESULT_TYPE_FAIL = 9;
 
 
 	/**
@@ -132,6 +129,4 @@ interface IRunner {
 	 * @param int $type
 	 */
 	public function newIndexResult(IIndex $index, string $message, string $status, int $type);
-
-
 }

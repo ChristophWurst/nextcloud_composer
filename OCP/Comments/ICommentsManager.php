@@ -48,7 +48,7 @@ interface ICommentsManager {
 	 *
 	 * User interfaces shall show "Deleted user" as display name, if needed.
 	 */
-	const DELETED_USER = 'deleted_users';
+	public const DELETED_USER = 'deleted_users';
 
 	/**
 	 * returns a comment instance
@@ -322,5 +322,4 @@ interface ICommentsManager {
 	 * provided ID is unknown. It must be ensured that a string is returned.
 	 */
 	public function resolveDisplayName($type, $id);
-
 }

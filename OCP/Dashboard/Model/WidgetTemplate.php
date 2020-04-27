@@ -26,7 +26,6 @@ declare(strict_types=1);
 
 namespace OCP\Dashboard\Model;
 
-
 use JsonSerializable;
 
 /**
@@ -309,6 +308,4 @@ final class WidgetTemplate implements JsonSerializable {
 			'settings' => $this->getSettings()
 		];
 	}
-
-
 }

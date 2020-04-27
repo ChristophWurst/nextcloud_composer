@@ -31,7 +31,7 @@ use OCP\IUser;
 
 /**
  * Nextcloud 2FA provider registry for stateful 2FA providers
- * 
+ *
  * This service keeps track of which providers are currently active for a specific
  * user. Stateful 2FA providers (IStatefulProvider) must use this service to save
  * their enabled/disabled state.
@@ -39,10 +39,8 @@ use OCP\IUser;
  * @since 14.0.0
  */
 interface IRegistry {
-
-
-	const EVENT_PROVIDER_ENABLED = self::class . '::enable';
-	const EVENT_PROVIDER_DISABLED = self::class . '::disable';
+	public const EVENT_PROVIDER_ENABLED = self::class . '::enable';
+	public const EVENT_PROVIDER_DISABLED = self::class . '::disable';
 
 	/**
 	 * Get a key-value map of providers and their enabled/disabled state for
@@ -81,5 +79,4 @@ interface IRegistry {
 	 * @return void
 	 */
 	public function cleanUp(string $providerId);
-
 }

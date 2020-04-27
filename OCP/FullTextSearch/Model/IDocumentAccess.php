@@ -26,7 +26,6 @@ declare(strict_types=1);
 
 namespace OCP\FullTextSearch\Model;
 
-
 /**
  * Interface IDocumentAccess
  *
@@ -255,5 +254,4 @@ interface IDocumentAccess {
 	 * @return array
 	 */
 	public function getLinks(): array;
-
 }

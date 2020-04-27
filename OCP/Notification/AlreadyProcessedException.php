@@ -26,7 +26,6 @@ declare(strict_types=1);
 
 namespace OCP\Notification;
 
-
 /**
  * @since 17.0.0
  */
@@ -38,5 +37,4 @@ class AlreadyProcessedException extends \RuntimeException {
 	public function __construct() {
 		parent::__construct('Notification is processed already');
 	}
-
 }

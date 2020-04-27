@@ -27,7 +27,6 @@ declare(strict_types=1);
 
 namespace OCP\FullTextSearch;
 
-
 use OCP\FullTextSearch\Model\IIndex;
 use OCP\FullTextSearch\Model\IIndexDocument;
 use OCP\FullTextSearch\Model\IIndexOptions;
@@ -316,5 +315,4 @@ interface IFullTextSearchProvider {
 	 * @since 15.0.0
 	 */
 	public function unloadProvider();
-
 }

@@ -26,7 +26,6 @@ declare(strict_types=1);
 
 namespace OCP\Dashboard\Model;
 
-
 use OCP\Dashboard\IDashboardWidget;
 
 /**
@@ -120,6 +119,4 @@ interface IWidgetConfig {
 	 * @return bool
 	 */
 	public function isEnabled(): bool;
-
-
 }

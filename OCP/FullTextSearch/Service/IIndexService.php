@@ -26,7 +26,6 @@ declare(strict_types=1);
 
 namespace OCP\FullTextSearch\Service;
 
-
 use OCP\FullTextSearch\Model\IIndex;
 
 /**
@@ -103,5 +102,4 @@ interface IIndexService {
 	 * @param array $indexes
 	 */
 	public function updateIndexes(array $indexes);
-
 }
