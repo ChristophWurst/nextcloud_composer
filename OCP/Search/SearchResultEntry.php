@@ -34,7 +34,7 @@ use JsonSerializable;
  * The app providing the results has to extend this class for customization. In
  * most cases apps do not have to add any additional code.
  *
- * @example ``class MailResultEntry extends ASearchResultEntry {}`
+ * @example ``class MailResultEntry extends SearchResultEntry {}`
  *
  * This approach was chosen over a final class as it allows Nextcloud to later
  * add new optional properties of an entry without having to break the usage of
@@ -42,7 +42,7 @@ use JsonSerializable;
  *
  * @since 20.0.0
  */
-abstract class ASearchResultEntry implements JsonSerializable {
+class SearchResultEntry implements JsonSerializable {
 
 	/**
 	 * @var string
@@ -72,7 +72,7 @@ abstract class ASearchResultEntry implements JsonSerializable {
 	 * @var string
 	 * @since 20.0.0
 	 */
-	protected $iconClass;
+	protected $icon;
 
 	/**
 	 * @var boolean
@@ -85,7 +85,7 @@ abstract class ASearchResultEntry implements JsonSerializable {
 	 * @param string $title a main title of the entry
 	 * @param string $subline the secondary line of the entry
 	 * @param string $resourceUrl the URL where the user can find the detail, like a deep link inside the app
-	 * @param string $iconClass the icon class fallback
+	 * @param string $icon the icon class or url to the icon
 	 * @param boolean $rounded is the thumbnail rounded
 	 *
 	 * @since 20.0.0
@@ -94,13 +94,13 @@ abstract class ASearchResultEntry implements JsonSerializable {
 								string $title,
 								string $subline,
 								string $resourceUrl,
-								string $iconClass = '',
+								string $icon = '',
 								bool $rounded = false) {
 		$this->thumbnailUrl = $thumbnailUrl;
 		$this->title = $title;
 		$this->subline = $subline;
 		$this->resourceUrl = $resourceUrl;
-		$this->iconClass = $iconClass;
+		$this->icon = $icon;
 		$this->rounded = $rounded;
 	}
 
@@ -115,7 +115,7 @@ abstract class ASearchResultEntry implements JsonSerializable {
 			'title' => $this->title,
 			'subline' => $this->subline,
 			'resourceUrl' => $this->resourceUrl,
-			'iconClass' => $this->iconClass,
+			'icon' => $this->icon,
 			'rounded' => $this->rounded,
 		];
 	}
