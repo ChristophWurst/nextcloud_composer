@@ -1,11 +1,8 @@
 <?php
 
 declare(strict_types=1);
-
 /**
- * @copyright Copyright (c) 2018 Roeland Jago Douma <roeland@famdouma.nl>
- *
- * @author Roeland Jago Douma <roeland@famdouma.nl>
+ * @copyright Copyright (c) 2020 Joas Schilling <coding@schilljs.com>
  *
  * @license GNU AGPL version 3 or any later version
  *
@@ -20,22 +17,36 @@ declare(strict_types=1);
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
 
-namespace OCP\User\Backend;
+namespace OCP\AppFramework\Http;
+
+use OCP\Template;
 
 /**
- * @since 14.0.0
+ * A generic 429 response showing an 404 error page as well to the end-user
+ * @since 19.0.0
  */
-interface ICheckPasswordBackend {
+class TooManyRequestsResponse extends Response {
+
 	/**
-	 * @since 14.0.0
-	 *
-	 * @param string $loginName The loginname
-	 * @param string $password The password
-	 * @return string|bool The uid on success false on failure
+	 * @since 19.0.0
 	 */
-	public function checkPassword(string $loginName, string $password);
+	public function __construct() {
+		parent::__construct();
+
+		$this->setContentSecurityPolicy(new ContentSecurityPolicy());
+		$this->setStatus(429);
+	}
+
+	/**
+	 * @return string
+	 * @since 19.0.0
+	 */
+	public function render() {
+		$template = new Template('core', '429', 'blank');
+		return $template->fetchPage();
+	}
 }
