@@ -154,6 +154,12 @@ class Definitions {
 					'description' => 'The display name of the event which should be used in the visual representation',
 					'example' => 'Workout',
 				],
+				'link' => [
+					'since' => '19.0.0',
+					'required' => false,
+					'description' => 'A link to the page displaying the calendar',
+					'example' => 'http://localhost/index.php/apps/calendar/dayGridMonth/2020-01-20/edit/sidebar/base64string/1579046400'
+				]
 			],
 		],
 		'call' => [
@@ -178,6 +184,12 @@ class Definitions {
 					'required' => true,
 					'description' => 'The type of the call: one2one, group or public',
 					'example' => 'one2one',
+				],
+				'link' => [
+					'since' => '19.0.0',
+					'required' => false,
+					'description' => 'The link to the conversation',
+					'example' => 'https://localhost/index.php/call/R4nd0mToken',
 				],
 			],
 		],

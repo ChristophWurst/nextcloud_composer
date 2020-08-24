@@ -5,7 +5,6 @@
  * @author Bernhard Posselt <dev@bernhard-posselt.com>
  * @author Christoph Wurst <christoph@winzerhof-wurst.at>
  * @author Donquixote <marjunebatac@gmail.com>
- * @author Lukas Reschke <lukas@statuscode.ch>
  * @author Morris Jobke <hey@morrisjobke.de>
  * @author Roeland Jago Douma <roeland@famdouma.nl>
  * @author Thomas Müller <thomas.mueller@tmit.eu>
@@ -92,6 +91,14 @@ abstract class Controller {
 						unset($headers['Content-Type']);
 					}
 					$response->setHeaders(array_merge($dataHeaders, $headers));
+
+					if ($data->getETag() !== null) {
+						$response->setETag($data->getETag());
+					}
+					if ($data->getLastModified() !== null) {
+						$response->setLastModified($data->getLastModified());
+					}
+
 					return $response;
 				}
 				return new JSONResponse($data);
