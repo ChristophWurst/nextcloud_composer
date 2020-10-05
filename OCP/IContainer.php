@@ -3,6 +3,7 @@
  * @copyright Copyright (c) 2016, ownCloud, Inc.
  *
  * @author Bernhard Posselt <dev@bernhard-posselt.com>
+ * @author Christoph Wurst <christoph@winzerhof-wurst.at>
  * @author Joas Schilling <coding@schilljs.com>
  * @author Morris Jobke <hey@morrisjobke.de>
  * @author Roeland Jago Douma <roeland@famdouma.nl>
@@ -45,7 +46,6 @@ use Psr\Container\ContainerInterface;
  *
  * IContainer is the basic interface to be used for any internal dependency injection mechanism
  *
- * @package OCP
  * @since 6.0.0
  * @deprecated 20.0.0 use \Psr\Container\ContainerInterface
  */

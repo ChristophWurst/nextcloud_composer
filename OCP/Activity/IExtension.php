@@ -5,6 +5,7 @@
  * @author Björn Schießle <bjoern@schiessle.org>
  * @author Christoph Wurst <christoph@winzerhof-wurst.at>
  * @author Morris Jobke <hey@morrisjobke.de>
+ * @author Robin Appelman <robin@icewind.nl>
  * @author Thomas Müller <thomas.mueller@tmit.eu>
  *
  * @license AGPL-3.0
@@ -28,7 +29,6 @@ namespace OCP\Activity;
 /**
  * Interface IExtension
  *
- * @package OCP\Activity
  * @since 8.0.0
  */
 interface IExtension {

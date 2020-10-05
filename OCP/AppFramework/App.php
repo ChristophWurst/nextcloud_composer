@@ -7,6 +7,7 @@ declare(strict_types=1);
  *
  * @author Bernhard Posselt <dev@bernhard-posselt.com>
  * @author Christoph Wurst <christoph@winzerhof-wurst.at>
+ * @author Daniel Kesselberg <mail@danielkesselberg.de>
  * @author Joas Schilling <coding@schilljs.com>
  * @author Julius Härtl <jus@bitgrid.net>
  * @author Lukas Reschke <lukas@statuscode.ch>
@@ -45,7 +46,6 @@ use OCP\Route\IRouter;
 
 /**
  * Class App
- * @package OCP\AppFramework
  *
  * Any application must inherit this call - all controller instances to be used are
  * to be registered using IContainer::registerService

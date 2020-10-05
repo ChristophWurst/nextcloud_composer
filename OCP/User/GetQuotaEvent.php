@@ -1,12 +1,8 @@
 <?php
 
 declare(strict_types=1);
-
 /**
- * @copyright 2019 Christoph Wurst <christoph@winzerhof-wurst.at>
- *
- * @author Christoph Wurst <christoph@winzerhof-wurst.at>
- * @author Morris Jobke <hey@morrisjobke.de>
+ * @copyright Copyright (c) 2020 Robin Appelman <robin@icewind.nl>
  *
  * @license GNU AGPL version 3 or any later version
  *
@@ -21,56 +17,56 @@ declare(strict_types=1);
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
 
-namespace OCP\User\Events;
+namespace OCP\User;
 
 use OCP\EventDispatcher\Event;
 use OCP\IUser;
 
 /**
- * Emitted when a new user has been created on the back-end.
+ * Event to allow apps to
  *
- * @since 18.0.0
+ * @since 20.0.0
  */
-class UserCreatedEvent extends Event {
-
+class GetQuotaEvent extends Event {
 	/** @var IUser */
 	private $user;
-
-	/** @var string */
-	private $password;
+	/** @var string|null */
+	private $quota = null;
 
 	/**
-	 * @since 18.0.0
+	 * @since 20.0.0
 	 */
-	public function __construct(IUser $user,
-								string $password) {
+	public function __construct(IUser $user) {
 		parent::__construct();
 		$this->user = $user;
-		$this->password = $password;
 	}
 
 	/**
-	 * @since 18.0.0
+	 * @since 20.0.0
 	 */
 	public function getUser(): IUser {
 		return $this->user;
 	}
 
 	/**
-	 * @since 18.0.0
+	 * Get the set quota as human readable string, or null if no overwrite is set
+	 *
+	 * @since 20.0.0
 	 */
-	public function getUid(): string {
-		return $this->user->getUID();
+	public function getQuota(): ?string {
+		return $this->quota;
 	}
 
 	/**
-	 * @since 18.0.0
+	 * Set the quota overwrite as human readable string
+	 *
+	 * @since 20.0.0
 	 */
-	public function getPassword(): string {
-		return $this->password;
+	public function setQuota(string $quota): void {
+		$this->quota = $quota;
 	}
 }
