@@ -1,9 +1,12 @@
 <?php
+
+declare(strict_types=1);
+
 /**
- * @copyright Copyright (c) 2016 Robin Appelman <robin@icewind.nl>
+ * @copyright 2019 Christoph Wurst <christoph@winzerhof-wurst.at>
  *
  * @author Christoph Wurst <christoph@winzerhof-wurst.at>
- * @author Robin Appelman <robin@icewind.nl>
+ * @author Morris Jobke <hey@morrisjobke.de>
  *
  * @license GNU AGPL version 3 or any later version
  *
@@ -22,28 +25,43 @@
  *
  */
 
-namespace OCP\Files\Storage;
+namespace OCP\Group\Events;
 
-use OCP\Files\Notify\INotifyHandler;
+use OCP\EventDispatcher\Event;
+use OCP\IGroup;
+use OCP\IUser;
 
 /**
- * Storage backend that support active notifications
- *
- * @since 9.1.0
+ * @since 21.0.0
  */
-interface INotifyStorage {
-	public const NOTIFY_ADDED = 1;
-	public const NOTIFY_REMOVED = 2;
-	public const NOTIFY_MODIFIED = 3;
-	public const NOTIFY_RENAMED = 4;
+class SubAdminAddedEvent extends Event {
+
+	/** @var IGroup */
+	private $group;
+
+	/*** @var IUser */
+	private $user;
 
 	/**
-	 * Start the notification handler for this storage
-	 *
-	 * @param $path
-	 * @return INotifyHandler
-	 *
-	 * @since 12.0.0
+	 * @since 21.0.0
 	 */
-	public function notify($path);
+	public function __construct(IGroup $group, IUser $user) {
+		parent::__construct();
+		$this->group = $group;
+		$this->user = $user;
+	}
+
+	/**
+	 * @since 21.0.0
+	 */
+	public function getGroup(): IGroup {
+		return $this->group;
+	}
+
+	/**
+	 * @since 21.0.0
+	 */
+	public function getUser(): IUser {
+		return $this->user;
+	}
 }
