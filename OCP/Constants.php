@@ -2,6 +2,7 @@
 /**
  * @copyright Copyright (c) 2016, ownCloud, Inc.
  *
+ * @author Arthur Schiwon <blizzz@arthur-schiwon.de>
  * @author Christoph Wurst <christoph@winzerhof-wurst.at>
  * @author Joas Schilling <coding@schilljs.com>
  * @author Morris Jobke <hey@morrisjobke.de>
@@ -52,4 +53,10 @@ class Constants {
 	 * longer support windows as server platform.
 	 */
 	public const FILENAME_INVALID_CHARS = "\\/";
+
+	/**
+	 * @since 21.0.0 – default value for autocomplete/search results limit,
+	 * cf. sharing.maxAutocompleteResults in config.sample.php.
+	 */
+	public const SHARING_MAX_AUTOCOMPLETE_RESULTS_DEFAULT = 25;
 }
