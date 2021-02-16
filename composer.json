@@ -10,11 +10,17 @@
         }
     ],
     "require": {
-        "php" : "^7.3 || ~8.0.0"
+        "php": "^7.3 || ~8.0.0",
+        "psr/container": "^1.0",
+        "psr/event-dispatcher": "^1.0",
+        "psr/log": "^1.1"
     },
     "extra": {
         "branch-alias": {
             "dev-master": "22.0.0-dev"
         }
+    },
+    "config": {
+        "sort-packages": true
     }
 }
