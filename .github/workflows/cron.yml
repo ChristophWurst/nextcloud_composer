@@ -1,0 +1,27 @@
+name: Update APIs
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    name: update
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Update
+        run: ./build.sh
+
+      - name: Check status
+        run: git status && git diff-index HEAD
+
+      - name: Push
+        run: ./push.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
