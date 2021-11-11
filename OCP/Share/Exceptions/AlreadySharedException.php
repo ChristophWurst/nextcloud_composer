@@ -1,11 +1,8 @@
 <?php
 
 declare(strict_types=1);
-
 /**
- * @copyright Copyright (c) 2019 Robin Appelman <robin@icewind.nl>
- *
- * @author Robin Appelman <robin@icewind.nl>
+ * @copyright Copyright (c) 2021 Robin Appelman <robin@icewind.nl>
  *
  * @license GNU AGPL version 3 or any later version
  *
@@ -20,17 +17,34 @@ declare(strict_types=1);
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
 
-namespace OCP\Files\Cache;
+namespace OCP\Share\Exceptions;
+
+use OCP\Share\IShare;
 
 /**
- * Event for when a new entry gets added to the cache
- *
- * @since 16.0.0
- * @deprecated 21.0.0 use CacheEntryInsertedEvent instead
+ * @since 22.0.0
  */
-class CacheInsertEvent extends CacheEntryInsertedEvent {
+class AlreadySharedException extends GenericShareException {
+	/** @var IShare */
+	private $existingShare;
+
+	/**
+	 * @since 22.0.0
+	 */
+	public function __construct(string $message, IShare $existingShare) {
+		parent::__construct($message);
+
+		$this->existingShare = $existingShare;
+	}
+
+	/**
+	 * @since 22.0.0
+	 */
+	public function getExistingShare(): IShare {
+		return $this->existingShare;
+	}
 }
