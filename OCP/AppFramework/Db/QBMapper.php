@@ -31,6 +31,7 @@ declare(strict_types=1);
 namespace OCP\AppFramework\Db;
 
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
+use OCP\DB\Exception;
 use OCP\DB\QueryBuilder\IQueryBuilder;
 use OCP\IDBConnection;
 
@@ -86,10 +87,12 @@ abstract class QBMapper {
 
 	/**
 	 * Deletes an entity from the table
+	 *
 	 * @param Entity $entity the entity that should be deleted
 	 * @psalm-param T $entity the entity that should be deleted
 	 * @return Entity the deleted entity
 	 * @psalm-return T the deleted entity
+	 * @throws Exception
 	 * @since 14.0.0
 	 */
 	public function delete(Entity $entity): Entity {
@@ -108,10 +111,12 @@ abstract class QBMapper {
 
 	/**
 	 * Creates a new entry in the db from an entity
+	 *
 	 * @param Entity $entity the entity that should be created
 	 * @psalm-param T $entity the entity that should be created
 	 * @return Entity the saved entity with the set id
 	 * @psalm-return T the saved entity with the set id
+	 * @throws Exception
 	 * @since 14.0.0
 	 */
 	public function insert(Entity $entity): Entity {
@@ -151,6 +156,7 @@ abstract class QBMapper {
 	 * @psalm-param T $entity the entity that should be created/updated
 	 * @return Entity the saved entity with the (new) id
 	 * @psalm-return T the saved entity with the (new) id
+	 * @throws Exception
 	 * @throws \InvalidArgumentException if entity has no id
 	 * @since 15.0.0
 	 */
@@ -164,11 +170,13 @@ abstract class QBMapper {
 
 	/**
 	 * Updates an entry in the db from an entity
-	 * @throws \InvalidArgumentException if entity has no id
+	 *
 	 * @param Entity $entity the entity that should be created
 	 * @psalm-param T $entity the entity that should be created
 	 * @return Entity the saved entity with the set id
 	 * @psalm-return T the saved entity with the set id
+	 * @throws Exception
+	 * @throws \InvalidArgumentException if entity has no id
 	 * @since 14.0.0
 	 */
 	public function update(Entity $entity): Entity {
@@ -250,12 +258,13 @@ abstract class QBMapper {
 	 * Returns an db result and throws exceptions when there are more or less
 	 * results
 	 *
+	 * @param IQueryBuilder $query
+	 * @return array the result as row
+	 * @throws Exception
+	 * @throws MultipleObjectsReturnedException if more than one item exist
+	 * @throws DoesNotExistException if the item does not exist
 	 * @see findEntity
 	 *
-	 * @param IQueryBuilder $query
-	 * @throws DoesNotExistException if the item does not exist
-	 * @throws MultipleObjectsReturnedException if more than one item exist
-	 * @return array the result as row
 	 * @since 14.0.0
 	 */
 	protected function findOneQuery(IQueryBuilder $query): array {
@@ -314,6 +323,7 @@ abstract class QBMapper {
 	 * @param IQueryBuilder $query
 	 * @return Entity[] all fetched entities
 	 * @psalm-return T[] all fetched entities
+	 * @throws Exception
 	 * @since 14.0.0
 	 */
 	protected function findEntities(IQueryBuilder $query): array {
@@ -336,10 +346,11 @@ abstract class QBMapper {
 	 * results
 	 *
 	 * @param IQueryBuilder $query
-	 * @throws DoesNotExistException if the item does not exist
-	 * @throws MultipleObjectsReturnedException if more than one item exist
 	 * @return Entity the entity
 	 * @psalm-return T the entity
+	 * @throws Exception
+	 * @throws MultipleObjectsReturnedException if more than one item exist
+	 * @throws DoesNotExistException if the item does not exist
 	 * @since 14.0.0
 	 */
 	protected function findEntity(IQueryBuilder $query): Entity {
