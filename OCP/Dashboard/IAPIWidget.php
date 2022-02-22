@@ -1,8 +1,11 @@
 <?php
+
+declare(strict_types=1);
+
 /**
- * @copyright Copyright (c) 2017 Robin Appelman <robin@icewind.nl>
+ * @copyright Copyright (c) 2021 Julien Veyssier <eneiluj@posteo.net>
  *
- * @author Robin Appelman <robin@icewind.nl>
+ * @author Julien Veyssier <eneiluj@posteo.net>
  *
  * @license GNU AGPL version 3 or any later version
  *
@@ -13,35 +16,26 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  */
-namespace OCP\Files\Search;
+
+namespace OCP\Dashboard;
 
 /**
- * @since 12.0.0
+ * interface IAPIWidget
+ *
+ * @since 22.0.0
  */
-interface ISearchOperator {
-	/**
-	 * Get a query builder hint by name
-	 *
-	 * @param string $name
-	 * @param $default
-	 * @return mixed
-	 * @since 23.0.0
-	 */
-	public function getQueryHint(string $name, $default);
+interface IAPIWidget extends IWidget {
 
 	/**
-	 * Get a query builder hint
-	 *
-	 * @param string $name
-	 * @param $value
-	 * @since 23.0.0
+	 * @return \OCP\Dashboard\Model\WidgetItem[] The widget items
+	 * @since 22.0.0
 	 */
-	public function setQueryHint(string $name, $value): void;
+	public function getItems(string $userId, ?string $since = null, int $limit = 7): array;
 }
