@@ -3,9 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2022 Côme Chilliet <come.chilliet@nextcloud.com>
- *
- * @author Côme Chilliet <come.chilliet@nextcloud.com>
+ * @copyright Copyright (c) 2022 Carl Schwan <carl@carlschwan.eu>
  *
  * @license GNU AGPL version 3 or any later version
  *
@@ -23,37 +21,14 @@ declare(strict_types=1);
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  */
-
-namespace OCP\UserMigration;
+namespace OCP\Capabilities;
 
 /**
- * Basic version handling: we can import older versions but not newer ones
+ * Indicate that a capability should not be injected in the initial state
+ * of the page as it might be expensive to query and not useful for the
+ * webui.
+ *
  * @since 24.0.0
  */
-trait TMigratorBasicVersionHandling {
-	protected int $version = 1;
-
-	protected bool $mandatory = false;
-
-	/**
-	 * {@inheritDoc}
-	 * @since 24.0.0
-	 */
-	public function getVersion(): int {
-		return $this->version;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * @since 24.0.0
-	 */
-	public function canImport(
-		IImportSource $importSource
-	): bool {
-		$version = $importSource->getMigratorVersion($this->getId());
-		if ($version === null) {
-			return !$this->mandatory;
-		}
-		return ($this->version >= $version);
-	}
+interface IInitialStateExcludedCapability {
 }
