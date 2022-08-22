@@ -11,9 +11,18 @@ jobs:
   update:
     runs-on: ubuntu-latest
 
-    name: update
+    strategy:
+      fail-fast: false
+      matrix:
+        branches: ["master", "stable24", "stable23", "stable22"]
+
+    name: Update ${{ matrix.branches }}
+
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ matrix.branches }}
+          submodules: true
 
       - name: Update
         run: ./build.sh
