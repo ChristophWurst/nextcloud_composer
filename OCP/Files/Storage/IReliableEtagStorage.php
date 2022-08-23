@@ -1,11 +1,8 @@
 <?php
 
 declare(strict_types=1);
-
 /**
- * @copyright Copyright (c) 2020 Julius Härtl <jus@bitgrid.net>
- *
- * @author Julius Härtl <jus@bitgrid.net>
+ * @copyright Copyright (c) 2022 Robin Appelman <robin@icewind.nl>
  *
  * @license GNU AGPL version 3 or any later version
  *
@@ -16,32 +13,23 @@ declare(strict_types=1);
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-namespace OCP\Dashboard;
+
+namespace OCP\Files\Storage;
 
 /**
- * Interface IManager
+ * Marks a storage as providing reliable etags according to expected behavior of etags within nextcloud:
  *
- * @since 20.0.0
+ * - Etag are stable as long as no changes are made to the files
+ * - Changes inside a folder cause etag changes of the parent folders
+ *
+ * @since 23.0.4
  */
-interface IManager {
-
-	/**
-	 * @param string $widgetClass
-	 * @since 20.0.0
-	 */
-	public function lazyRegisterWidget(string $widgetClass, string $appId): void;
-
-	/**
-	 * @since 20.0.0
-	 *
-	 * @return IWidget[]
-	 */
-	public function getWidgets(): array;
+interface IReliableEtagStorage extends IStorage {
 }
