@@ -316,10 +316,12 @@ interface IManager {
 	/**
 	 * Is password on public link requires
 	 *
+	 * @param bool $checkGroupMembership Check group membership exclusion
 	 * @return bool
 	 * @since 9.0.0
+	 * @since 24.0.0 Added optional $checkGroupMembership parameter
 	 */
-	public function shareApiLinkEnforcePassword();
+	public function shareApiLinkEnforcePassword(bool $checkGroupMembership = true);
 
 	/**
 	 * Is default expire date enabled
@@ -446,6 +448,22 @@ interface IManager {
 	 * @since 21.0.1
 	 */
 	public function allowEnumerationFullMatch(): bool;
+
+	/**
+	 * Check if the search should match the email
+	 *
+	 * @return bool
+	 * @since 22.2.10
+	 */
+	public function matchEmail(): bool;
+
+	/**
+	 * Check if the search should ignore the second in parentheses display name if there is any
+	 *
+	 * @return bool
+	 * @since 22.2.10
+	 */
+	public function ignoreSecondDisplayName(): bool;
 
 	/**
 	 * Check if sharing is disabled for the given user
