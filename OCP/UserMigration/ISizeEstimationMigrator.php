@@ -3,9 +3,10 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2020 Julius Härtl <jus@bitgrid.net>
+ * @copyright 2022 Christopher Ng <chrng8@gmail.com>
  *
- * @author Julius Härtl <jus@bitgrid.net>
+ * @author Christopher Ng <chrng8@gmail.com>
+ * @author Côme Chilliet <come.chilliet@nextcloud.com>
  *
  * @license GNU AGPL version 3 or any later version
  *
@@ -23,25 +24,20 @@ declare(strict_types=1);
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  */
-namespace OCP\Dashboard;
+
+namespace OCP\UserMigration;
+
+use OCP\IUser;
 
 /**
- * Interface IManager
- *
- * @since 20.0.0
+ * @since 25.0.0
  */
-interface IManager {
-
+interface ISizeEstimationMigrator {
 	/**
-	 * @param string $widgetClass
-	 * @since 20.0.0
-	 */
-	public function lazyRegisterWidget(string $widgetClass, string $appId): void;
-
-	/**
-	 * @since 20.0.0
+	 * Returns an estimate of the exported data size in KiB.
+	 * Should be fast, favor performance over accuracy.
 	 *
-	 * @return IWidget[]
+	 * @since 25.0.0
 	 */
-	public function getWidgets(): array;
+	public function getEstimatedExportSize(IUser $user): int;
 }
