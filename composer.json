@@ -1,5 +1,5 @@
 {
-    "name": "christophwurst/nextcloud",
+    "name": "nextcloud/ocp",
     "description": "Composer package containing Nextcloud's public API (classes, interfaces)",
     "type": "library",
     "license": "AGPL-3.0-or-later",
