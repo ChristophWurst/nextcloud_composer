@@ -8,10 +8,10 @@ if git diff-index --quiet HEAD --; then
 fi
 
 echo "changes detected"
-git config --global user.email "travis@travis-ci.org"
-git config --global user.name "Travis CI"
+git config --global user.email "nextcloud-command@users.noreply.github.com"
+git config --global user.name "nextcloud-command"
 git add -A
 git commit -a -m "Update OCP"
-git remote add push-origin https://${GITHUB_TOKEN}@github.com/ChristophWurst/nextcloud_composer.git
+git remote add push-origin https://${GITHUB_TOKEN}@github.com/nextcloud-deps/ocp.git
 git push --set-upstream push-origin $TRAVIS_BRANCH
 
