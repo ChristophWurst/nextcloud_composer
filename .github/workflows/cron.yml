@@ -2,7 +2,7 @@ name: Update APIs
 
 on:
   schedule:
-    - cron: '56 10 * * *'
+    - cron: '00 11 * * *'
 
 permissions:
   contents: write
