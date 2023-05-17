@@ -1,6 +1,7 @@
 name: Update APIs
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '00 11 * * *'
 
