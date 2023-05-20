@@ -25,13 +25,7 @@ jobs:
           ref: ${{ matrix.branches }}
           submodules: true
 
-      - name: Update
+      - name: Update and push OCP
         run: ./build.sh
-
-      - name: Check status
-        run: git status && git diff-index HEAD
-
-      - name: Push
-        run: ./push.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
