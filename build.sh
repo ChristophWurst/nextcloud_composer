@@ -19,7 +19,7 @@ init_git() {
 # Detect local changes
 # Return 0 if changes are detected, 1 otherwise
 detect_changes() {
-    if git diff-index --quiet HEAD --; then
+    if git diff --quiet HEAD --; then
         echo "no changes detected"
         return 1
     fi
