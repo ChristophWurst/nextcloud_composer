@@ -27,7 +27,7 @@ jobs:
       
       - name: Get latest build script
         run: |
-          wget https://raw.githubusercontent.com/nextcloud-deps/ocp/master/build.sh > build.sh
+          wget https://raw.githubusercontent.com/nextcloud-deps/ocp/master/build.sh -O build.sh
 
       - name: Update and push OCP
         run: ./build.sh
