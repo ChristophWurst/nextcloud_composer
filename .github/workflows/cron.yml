@@ -24,6 +24,10 @@ jobs:
         with:
           ref: ${{ matrix.branches }}
           submodules: true
+      
+      - name: Get latest build script
+        run: |
+          wget https://raw.githubusercontent.com/nextcloud-deps/ocp/master/build.sh > build.sh
 
       - name: Update and push OCP
         run: ./build.sh
