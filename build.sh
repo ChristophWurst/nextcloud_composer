@@ -78,7 +78,7 @@ if [[ "$CURRENT_BRANCH" =~ stable([0-9]+) ]]; then
     NC_TAGS=$(git ls-remote --tags origin | grep -Po "(?<=refs/tags/v)$CURRENT_MAJOR\.\d\.\d$" || echo "")
     popd
 
-    MISSING_TAGS=$(comm -13 <(echo $OCP_TAGS | sort) <(echo $NC_TAGS | sort))
+    MISSING_TAGS=$(comm -13 <(echo "$OCP_TAGS" | sort) <(echo "$NC_TAGS" | sort))
 
     for tag in $MISSING_TAGS; do
         echo -e "\nDetected missing tag: v$tag\n-----------------------"
