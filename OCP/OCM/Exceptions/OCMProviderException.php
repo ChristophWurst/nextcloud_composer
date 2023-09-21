@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2020 Julius Härtl <jus@bitgrid.net>
+ * @copyright 2023, Maxence Lange <maxence@artificial-owl.com>
  *
- * @author Julius Härtl <jus@bitgrid.net>
+ * @author Maxence Lange <maxence@artificial-owl.com>
  *
  * @license GNU AGPL version 3 or any later version
  *
@@ -23,24 +23,12 @@ declare(strict_types=1);
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  */
-namespace OCP\Dashboard;
+namespace OCP\OCM\Exceptions;
+
+use Exception;
 
 /**
- * Interface IManager
- *
- * @since 20.0.0
+ * @since 28.0.0
  */
-interface IManager {
-	/**
-	 * @param string $widgetClass
-	 * @since 20.0.0
-	 */
-	public function lazyRegisterWidget(string $widgetClass, string $appId): void;
-
-	/**
-	 * @since 20.0.0
-	 *
-	 * @return array<string, IWidget>
-	 */
-	public function getWidgets(): array;
+class OCMProviderException extends Exception {
 }

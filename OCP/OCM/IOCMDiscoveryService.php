@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2020 Julius Härtl <jus@bitgrid.net>
+ * @copyright Copyright (c) 2023 Maxence Lange <maxence@artificial-owl.com>
  *
- * @author Julius Härtl <jus@bitgrid.net>
+ * @author Maxence Lange <maxence@artificial-owl.com>
  *
  * @license GNU AGPL version 3 or any later version
  *
@@ -23,24 +23,26 @@ declare(strict_types=1);
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  */
-namespace OCP\Dashboard;
+
+namespace OCP\OCM;
+
+use OCP\OCM\Exceptions\OCMProviderException;
 
 /**
- * Interface IManager
+ * Discover remote OCM services
  *
- * @since 20.0.0
+ * @since 28.0.0
  */
-interface IManager {
+interface IOCMDiscoveryService {
 	/**
-	 * @param string $widgetClass
-	 * @since 20.0.0
-	 */
-	public function lazyRegisterWidget(string $widgetClass, string $appId): void;
-
-	/**
-	 * @since 20.0.0
+	 * Discover remote OCM services
 	 *
-	 * @return array<string, IWidget>
+	 * @param string $remote address of the remote provider
+	 * @param bool $skipCache ignore cache, refresh data
+	 *
+	 * @return IOCMProvider
+	 * @throws OCMProviderException if no valid discovery data can be returned
+	 * @since 28.0.0
 	 */
-	public function getWidgets(): array;
+	public function discover(string $remote, bool $skipCache = false): IOCMProvider;
 }
