@@ -19,11 +19,17 @@ init_git() {
 # Detect local changes
 # Return 0 if changes are detected, 1 otherwise
 detect_changes() {
+    echo "Detecting changes"
+    echo ""
+    git diff --name-only
+    echo ""
+
     if git diff --quiet HEAD --; then
-        echo "no changes detected"
+        echo -e "\033[1;35m🏳️ No changes detected\033[0m"
         return 1
     fi
-    echo "changes detected"
+    echo -e "\033[1;33m🛠️ Changes detected\033[0m"
+    echo ""
 }
 
 # Create and push a new commit with updated sources
@@ -61,10 +67,19 @@ if ! [[ "$CURRENT_BRANCH" =~ ^(stable[1-9][0-9]+|master|main)$ ]]; then
 fi
 
 echo "Updating OCP from branch: $CURRENT_BRANCH"
+echo ""
 
 # Load server repository
 [ -d server ] && rm -rf server
+echo "git clone --depth 1 --branch $CURRENT_BRANCH https://github.com/nextcloud/server.git"
 git clone --depth 1 --branch "$CURRENT_BRANCH" https://github.com/nextcloud/server.git
+echo ""
+
+# Print last commit
+pushd server
+git log
+echo ""
+popd
 
 # Init git user and push remote
 init_git
