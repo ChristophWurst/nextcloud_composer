@@ -21,10 +21,10 @@ init_git() {
 detect_changes() {
     echo "Detecting changes"
     echo ""
-    git diff --name-only
+    git diff --cached --name-only
     echo ""
 
-    if git diff --quiet HEAD --; then
+    if git diff --cached --quiet HEAD --; then
         echo -e "\033[1;35m🏳️ No changes detected\033[0m"
         return 1
     fi
@@ -35,7 +35,6 @@ detect_changes() {
 # Create and push a new commit with updated sources
 create_commit() {
     set -x
-    git add OCP
     git commit -a -m "$COMMIT_MESSAGE"
     git push --set-upstream push-origin
     set +x
@@ -58,6 +57,7 @@ create_tag() {
 update_sources() {
     rm -rf OCP
     cp -r server/lib/public OCP
+    git add OCP
 }
 
 # Check current branch, fallback to default
