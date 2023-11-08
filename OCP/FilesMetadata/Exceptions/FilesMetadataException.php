@@ -1,11 +1,10 @@
 <?php
 
 declare(strict_types=1);
-
 /**
- * @copyright Copyright (c) 2023 Kate Döen <kate.doeen@nextcloud.com>
+ * @copyright 2023 Maxence Lange <maxence@artificial-owl.com>
  *
- * @author Kate Döen <kate.doeen@nextcloud.com>
+ * @author Maxence Lange <maxence@artificial-owl.com>
  *
  * @license GNU AGPL version 3 or any later version
  *
@@ -16,23 +15,20 @@ declare(strict_types=1);
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
  */
 
-namespace OCP\AppFramework\Http\Attribute;
+namespace OCP\FilesMetadata\Exceptions;
 
-use Attribute;
+use Exception;
 
 /**
- * Attribute for controller methods that should be ignored when generating OpenAPI documentation
- *
  * @since 28.0.0
- * @deprecated 28.0.0 Use {@see OpenAPI} with {@see OpenAPI::SCOPE_IGNORE} instead: `#[OpenAPI(scope: OpenAPI::SCOPE_IGNORE)]`
  */
-#[Attribute(Attribute::TARGET_METHOD | Attribute::TARGET_CLASS)]
-class IgnoreOpenAPI {
+class FilesMetadataException extends Exception {
 }
