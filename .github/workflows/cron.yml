@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        branches: ["master", "stable27", "stable26", "stable25", "stable24", "stable23"]
+        branches: ["master", "stable28", "stable27", "stable26", "stable25", "stable24", "stable23"]
 
     name: Update ${{ matrix.branches }}
 
