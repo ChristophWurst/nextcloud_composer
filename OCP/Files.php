@@ -9,6 +9,8 @@
 
 namespace OCP;
 
+use OCP\Files\IMimeTypeDetector;
+
 /**
  * This class provides access to the internal filesystem abstraction layer. Use
  * this class exclusively if you want to access files
@@ -67,7 +69,7 @@ class Files {
 	 * @deprecated 14.0.0
 	 */
 	public static function getMimeType($path) {
-		return \OC::$server->getMimeTypeDetector()->detect($path);
+		return Server::get(IMimeTypeDetector::class)->detect($path);
 	}
 
 	/**
@@ -104,17 +106,5 @@ class Files {
 	 */
 	public static function buildNotExistingFileName($path, $filename) {
 		return \OC_Helper::buildNotExistingFileName($path, $filename);
-	}
-
-	/**
-	 * Gets the Storage for an app - creates the needed folder if they are not
-	 * existent
-	 * @param string $app
-	 * @return \OC\Files\View
-	 * @since 5.0.0
-	 * @deprecated 14.0.0 use IAppData instead
-	 */
-	public static function getStorage($app) {
-		return \OC_App::getStorage($app);
 	}
 }
