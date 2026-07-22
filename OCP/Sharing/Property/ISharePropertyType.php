@@ -73,6 +73,8 @@ interface ISharePropertyType {
 	 *
 	 * A default value must be returned, if {@see self::isRequired()} returns true.
 	 *
+	 * If the class also implements {@see ISharePropertyTypeModifyValue}, {@see ISharePropertyTypeModifyValue::modifyValueOnSave()} will be called when the value is saved to the database, but the value will be returned to the user as-is.
+	 *
 	 * @since 35.0.0
 	 */
 	public function getDefaultValue(): ?string;
