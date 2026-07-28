@@ -28,15 +28,17 @@ use OCP\Sharing\Source\ShareSource;
 #[Consumable(since: '35.0.0')]
 interface ISharingManager {
 	/**
-	 * Search for recpients that can be added to a share.
+	 * Search for recipients that can be added to a share.
 	 *
-	 * @param ?list<class-string<IShareRecipientType>> $recipientTypeClasses
+	 * @param ?list<class-string<IShareRecipientType>> $filterRecipientTypeClasses
 	 * @param positive-int $limit
 	 * @param non-negative-int $offset
+	 * @param ?string $id If provided, recipients that are already part of the share will not be returned.
 	 * @return list<ShareRecipient>
+	 * @throws ShareNotFoundException
 	 * @since 35.0.0
 	 */
-	public function searchRecipients(ShareAccessContext $accessContext, ?array $recipientTypeClasses, string $query, int $limit, int $offset): array;
+	public function searchRecipients(ShareAccessContext $accessContext, ?array $filterRecipientTypeClasses, string $query, int $limit, int $offset, ?string $id = null): array;
 
 	/**
 	 * Generate a new secret.
@@ -138,7 +140,7 @@ interface ISharingManager {
 	public function onInitiatorDeleted(ShareAccessContext $accessContext, IUser $initiator): void;
 
 	/**
-	 * Update the scecret of a recipient.
+	 * Update the secret of a recipient.
 	 *
 	 * @throws ShareInvalidException
 	 * @throws ShareNotFoundException
